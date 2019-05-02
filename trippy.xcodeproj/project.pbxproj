@@ -12,6 +12,8 @@
 		508828BE227AC0B5000AA7CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508828BC227AC0B5000AA7CB /* Main.storyboard */; };
 		508828C0227AC0B8000AA7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508828BF227AC0B8000AA7CB /* Assets.xcassets */; };
 		508828C3227AC0B8000AA7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508828C1227AC0B8000AA7CB /* LaunchScreen.storyboard */; };
+		508828CB227ACC16000AA7CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 508828CA227ACC16000AA7CB /* GoogleService-Info.plist */; };
+		B0B13D402C2C11C8BD13563B /* Pods_trippy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,11 @@
 		508828BF227AC0B8000AA7CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		508828C2227AC0B8000AA7CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		508828C4227AC0B8000AA7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		508828CA227ACC16000AA7CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		508828CC227ACC1C000AA7CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.release.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.release.xcconfig"; sourceTree = "<group>"; };
+		A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trippy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46D57B4ADAD30A820BE63E9 /* Pods-trippy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.debug.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B13D402C2C11C8BD13563B /* Pods_trippy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,9 @@
 			children = (
 				508828B7227AC0B5000AA7CB /* trippy */,
 				508828B6227AC0B5000AA7CB /* Products */,
+				508828CA227ACC16000AA7CB /* GoogleService-Info.plist */,
+				DD2BFAE481A452228E1B1BF4 /* Pods */,
+				7585A3DDB418D40A71CF25B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +71,27 @@
 				508828BF227AC0B8000AA7CB /* Assets.xcassets */,
 				508828C1227AC0B8000AA7CB /* LaunchScreen.storyboard */,
 				508828C4227AC0B8000AA7CB /* Info.plist */,
+				508828CC227ACC1C000AA7CB /* GoogleService-Info.plist */,
 			);
 			path = trippy;
+			sourceTree = "<group>";
+		};
+		7585A3DDB418D40A71CF25B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD2BFAE481A452228E1B1BF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E46D57B4ADAD30A820BE63E9 /* Pods-trippy.debug.xcconfig */,
+				5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +101,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 508828C7227AC0B8000AA7CB /* Build configuration list for PBXNativeTarget "trippy" */;
 			buildPhases = (
+				ED2374ED7A0CB24E22038FE7 /* [CP] Check Pods Manifest.lock */,
 				508828B1227AC0B5000AA7CB /* Sources */,
 				508828B2227AC0B5000AA7CB /* Frameworks */,
 				508828B3227AC0B5000AA7CB /* Resources */,
@@ -123,12 +154,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				508828C3227AC0B8000AA7CB /* LaunchScreen.storyboard in Resources */,
+				508828CB227ACC16000AA7CB /* GoogleService-Info.plist in Resources */,
 				508828C0227AC0B8000AA7CB /* Assets.xcassets in Resources */,
 				508828BE227AC0B5000AA7CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ED2374ED7A0CB24E22038FE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-trippy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		508828B1227AC0B5000AA7CB /* Sources */ = {
@@ -280,6 +337,7 @@
 		};
 		508828C8227AC0B8000AA7CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E46D57B4ADAD30A820BE63E9 /* Pods-trippy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +355,7 @@
 		};
 		508828C9227AC0B8000AA7CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
