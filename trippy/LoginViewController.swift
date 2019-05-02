@@ -4,7 +4,7 @@
 //
 //  Created by rk on 2/5/19.
 //  Copyright © 2019 Monash University. All rights reserved.
-//
+// Implements login page
 
 import UIKit
 
