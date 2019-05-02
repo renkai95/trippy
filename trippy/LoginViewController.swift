@@ -7,12 +7,16 @@
 // Implements login page
 
 import UIKit
+import GoogleSignIn
+import Firebase
+import Google
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,GIDSignInUIDelegate {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        GIDSignIn.sharedInstance().uiDelegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -26,5 +30,7 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
+    }
 }

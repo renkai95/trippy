@@ -15,6 +15,7 @@
 		508828C0227AC0B8000AA7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508828BF227AC0B8000AA7CB /* Assets.xcassets */; };
 		508828C3227AC0B8000AA7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508828C1227AC0B8000AA7CB /* LaunchScreen.storyboard */; };
 		508828CB227ACC16000AA7CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 508828CA227ACC16000AA7CB /* GoogleService-Info.plist */; };
+		50EDF0E2227B432D0020181F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50EDF0E1227B432D0020181F /* credentials.plist */; };
 		B0B13D402C2C11C8BD13563B /* Pods_trippy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		508828C4227AC0B8000AA7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		508828CA227ACC16000AA7CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		508828CC227ACC1C000AA7CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50EDF0E1227B432D0020181F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.release.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.release.xcconfig"; sourceTree = "<group>"; };
 		A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trippy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46D57B4ADAD30A820BE63E9 /* Pods-trippy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.debug.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				503F2FE0227ADE150007BA23 /* LoginViewController.swift */,
 				503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */,
 				508828BF227AC0B8000AA7CB /* Assets.xcassets */,
+				50EDF0E1227B432D0020181F /* credentials.plist */,
 				508828C1227AC0B8000AA7CB /* LaunchScreen.storyboard */,
 				508828C4227AC0B8000AA7CB /* Info.plist */,
 				508828CC227ACC1C000AA7CB /* GoogleService-Info.plist */,
@@ -162,6 +165,7 @@
 			files = (
 				508828C3227AC0B8000AA7CB /* LaunchScreen.storyboard in Resources */,
 				508828CB227ACC16000AA7CB /* GoogleService-Info.plist in Resources */,
+				50EDF0E2227B432D0020181F /* credentials.plist in Resources */,
 				508828C0227AC0B8000AA7CB /* Assets.xcassets in Resources */,
 				508828BE227AC0B5000AA7CB /* Main.storyboard in Resources */,
 			);
