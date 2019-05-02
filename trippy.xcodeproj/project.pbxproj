@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		503F2FE1227ADE160007BA23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F2FE0227ADE150007BA23 /* LoginViewController.swift */; };
+		503F2FE3227ADE2A0007BA23 /* TripListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */; };
 		508828B9227AC0B5000AA7CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508828B8227AC0B5000AA7CB /* AppDelegate.swift */; };
 		508828BB227AC0B5000AA7CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508828BA227AC0B5000AA7CB /* ViewController.swift */; };
 		508828BE227AC0B5000AA7CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508828BC227AC0B5000AA7CB /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		503F2FE0227ADE150007BA23 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListTableViewController.swift; sourceTree = "<group>"; };
 		508828B5227AC0B5000AA7CB /* trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508828B8227AC0B5000AA7CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508828BA227AC0B5000AA7CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				508828B8227AC0B5000AA7CB /* AppDelegate.swift */,
 				508828BA227AC0B5000AA7CB /* ViewController.swift */,
 				508828BC227AC0B5000AA7CB /* Main.storyboard */,
+				503F2FE0227ADE150007BA23 /* LoginViewController.swift */,
+				503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */,
 				508828BF227AC0B8000AA7CB /* Assets.xcassets */,
 				508828C1227AC0B8000AA7CB /* LaunchScreen.storyboard */,
 				508828C4227AC0B8000AA7CB /* Info.plist */,
@@ -90,7 +96,6 @@
 				E46D57B4ADAD30A820BE63E9 /* Pods-trippy.debug.xcconfig */,
 				5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -280,7 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503F2FE1227ADE160007BA23 /* LoginViewController.swift in Sources */,
 				508828BB227AC0B5000AA7CB /* ViewController.swift in Sources */,
+				503F2FE3227ADE2A0007BA23 /* TripListTableViewController.swift in Sources */,
 				508828B9227AC0B5000AA7CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
