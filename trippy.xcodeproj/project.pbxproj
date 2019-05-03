@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500B69D9227CB3CF00FDC378 /* UserTripListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500B69D8227CB3CF00FDC378 /* UserTripListTableViewController.swift */; };
 		503F2FE1227ADE160007BA23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F2FE0227ADE150007BA23 /* LoginViewController.swift */; };
 		503F2FE3227ADE2A0007BA23 /* TripListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */; };
 		508828B9227AC0B5000AA7CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508828B8227AC0B5000AA7CB /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		500B69D8227CB3CF00FDC378 /* UserTripListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTripListTableViewController.swift; sourceTree = "<group>"; };
 		503F2FE0227ADE150007BA23 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListTableViewController.swift; sourceTree = "<group>"; };
 		508828B5227AC0B5000AA7CB /* trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				508828B8227AC0B5000AA7CB /* AppDelegate.swift */,
 				508828BA227AC0B5000AA7CB /* ViewController.swift */,
 				508828BC227AC0B5000AA7CB /* Main.storyboard */,
+				500B69D8227CB3CF00FDC378 /* UserTripListTableViewController.swift */,
 				503F2FE0227ADE150007BA23 /* LoginViewController.swift */,
 				503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */,
 				508828BF227AC0B8000AA7CB /* Assets.xcassets */,
@@ -211,9 +214,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-trippy/Pods-trippy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -221,9 +228,13 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -261,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500B69D9227CB3CF00FDC378 /* UserTripListTableViewController.swift in Sources */,
 				503F2FE1227ADE160007BA23 /* LoginViewController.swift in Sources */,
 				508828BB227AC0B5000AA7CB /* ViewController.swift in Sources */,
 				503F2FE3227ADE2A0007BA23 /* TripListTableViewController.swift in Sources */,
