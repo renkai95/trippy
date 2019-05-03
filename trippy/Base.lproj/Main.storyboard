@@ -43,16 +43,31 @@
                                 <state key="normal" title="Log In!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="dkW-Jz-9Ns" kind="show" identifier="loginSegue" id="ikh-8Z-o5b"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-US-eOV" customClass="GIDSignInButton">
                                 <rect key="frame" x="16" y="138" width="343" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNc-Ic-hEH">
+                                <rect key="frame" x="40" y="462" width="295" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cud-E5-0H9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ryp-ov-jQx" firstAttribute="top" secondItem="OhD-US-eOV" secondAttribute="bottom" constant="32" id="5fS-TM-2WC"/>
+                            <constraint firstItem="cNc-Ic-hEH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="8ar-hv-bG8"/>
                             <constraint firstItem="ryp-ov-jQx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9xp-gu-P9q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cNc-Ic-hEH" secondAttribute="trailing" constant="40" id="BS3-Yb-Dvk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XGa-Ts-08e" secondAttribute="trailing" constant="40" id="LEw-fT-lgT"/>
                             <constraint firstItem="XGa-Ts-08e" firstAttribute="top" secondItem="ryp-ov-jQx" secondAttribute="bottom" constant="32" id="PGZ-SG-jMQ"/>
                             <constraint firstItem="FY9-hB-Izi" firstAttribute="top" secondItem="XGa-Ts-08e" secondAttribute="bottom" constant="32" id="Roa-2u-7O7"/>
@@ -64,12 +79,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FY9-hB-Izi" secondAttribute="trailing" constant="40" id="hhx-AK-M2z"/>
                             <constraint firstItem="sAE-LK-JYg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hsd-ed-Hca"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ryp-ov-jQx" secondAttribute="trailing" constant="16" id="iLt-PZ-aac"/>
+                            <constraint firstItem="cNc-Ic-hEH" firstAttribute="top" secondItem="FY9-hB-Izi" secondAttribute="bottom" constant="32" id="ogn-wD-DJg"/>
                             <constraint firstItem="FY9-hB-Izi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="wCA-4e-SYq"/>
                             <constraint firstItem="XGa-Ts-08e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="xG0-Mr-H90"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="RJe-EM-dXT"/>
+                    <connections>
+                        <outlet property="signOut" destination="cNc-Ic-hEH" id="ioq-RS-ck9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,4 +321,7 @@
             <point key="canvasLocation" x="1458" y="1012"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ikh-8Z-o5b"/>
+    </inferredMetricsTieBreakers>
 </document>

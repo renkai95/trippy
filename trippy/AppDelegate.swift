@@ -16,15 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance().clientID = "621271041924-nr7t5ljo4q8119vsnrbt6tlhtnujg7h9.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
+        //GIDSignIn.sharedInstance().clientID = "621271041924-nr7t5ljo4q8119vsnrbt6tlhtnujg7h9.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance().delegate = self
         // Override point for customization after application launch.
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+        let googleAuthentication = GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+        
+        
+        return googleAuthentication
     }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -61,6 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             let familyName = user.profile.familyName
             let email = user.profile.email
             // ...
+            print(fullName)
+            guard let authentication = user.authentication else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                           accessToken: authentication.accessToken)
+            Auth.auth().signIn(with: credential) 
         }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
