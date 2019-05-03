@@ -9,7 +9,6 @@
 import UIKit
 import GoogleSignIn
 import Firebase
-import Google
 
 class LoginViewController: UIViewController,GIDSignInUIDelegate {
 
