@@ -57,9 +57,6 @@
                                 <state key="normal" title="Sign Out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="didTapSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cud-E5-0H9"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -202,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="1940" y="-924"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Trip View Controller-->
         <scene sceneID="kQU-vK-ORI">
             <objects>
-                <viewController id="ihn-9P-xfE" sceneMemberID="viewController">
+                <viewController id="ihn-9P-xfE" customClass="AddTripViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JvJ-8n-mnx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
