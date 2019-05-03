@@ -240,6 +240,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgd-zn-RCs">
                                 <rect key="frame" x="250" y="292" width="109" height="30"/>
                                 <state key="normal" title="Add Destination"/>
+                                <connections>
+                                    <action selector="addDestination:" destination="ihn-9P-xfE" eventType="touchUpInside" id="xIf-EL-qQd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-XP-y3m">
                                 <rect key="frame" x="16" y="575" width="343" height="30"/>
