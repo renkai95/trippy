@@ -6,7 +6,6 @@ target 'trippy' do
   use_frameworks!
 
 pod 'Firebase/Core'
-pod 'FirebaseUI'
 pod 'FirebaseUI/Auth'
 pod 'FirebaseUI/Google'
 pod 'FirebaseUI/Phone'
