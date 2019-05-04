@@ -7,12 +7,15 @@
 //
 
 import UIKit
-
-class AddTripViewController: UIViewController {
+import Firebase
+import GoogleSignIn
+class AddTripViewController: UIViewController ,GIDSignInUIDelegate{
     weak var databaseController:DatabaseProtocol?
     @IBOutlet weak var titleOutlet: UITextField!
     @IBOutlet weak var originOutlet: UITextField!
+   
     @IBOutlet weak var destinationOutlet: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate=UIApplication.shared.delegate as! AppDelegate
@@ -24,6 +27,13 @@ class AddTripViewController: UIViewController {
         return true
     }
 
+    @IBAction func addTrip(_ sender: Any) {
+        if titleOutlet.text != "" {
+            let title = titleOutlet.text!
+            let uid = Auth.auth().currentUser!.uid
+            let _ = databaseController!.addTrip(userID:uid, title: title)
+        }
+    }
     /*
     // MARK: - Navigation
 

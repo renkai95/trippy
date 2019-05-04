@@ -25,18 +25,26 @@ class FirebaseController: NSObject,DatabaseProtocol{
         database = Firestore.firestore()
         
         super.init()
-        self.setUpListeners()
+        //self.setUpListeners()
         // This will START THE PROCESS of signing in with an anonymous account
         // The closure will not execute until its recieved a message back which can be any time later
 
         // Once we have authenticated we can attach our listeners to the firebase firestore
-        //self.setUpListeners()
+        //self.setUpListeners()+0.................................................................................................................0..
         
     }
     
     func addTrip(userID:String,title:String){
-        var docRef = database.collection("Trips").addDocument(data:[
-            "userid":userID])
+        var docRef: DocumentReference? = nil
+        docRef = database.collection("Trips").addDocument(data:[
+            "userid":userID,
+            "docid":[".sv": "timestamp"],
+            "title":title]){ err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(docRef!.documentID)")
+                }
     }
     func setUpListeners() {
         tripsRef = database.collection("Trips");
@@ -47,5 +55,6 @@ class FirebaseController: NSObject,DatabaseProtocol{
             }
            
     }
+}
 }
 }

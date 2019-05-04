@@ -125,7 +125,7 @@
                     <navigationItem key="navigationItem" title="My Trips" id="6Hs-fq-aks">
                         <barButtonItem key="rightBarButtonItem" title="Add Trip" id="sCN-m5-Bnp">
                             <connections>
-                                <segue destination="ihn-9P-xfE" kind="show" id="Pln-5m-DD9"/>
+                                <segue destination="ihn-9P-xfE" kind="show" id="ULI-0X-A9T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -137,7 +137,7 @@
         <!--Add Trip View Controller-->
         <scene sceneID="kQU-vK-ORI">
             <objects>
-                <viewController id="ihn-9P-xfE" customClass="AddTripViewController" sceneMemberID="viewController">
+                <viewController id="ihn-9P-xfE" customClass="AddTripViewController" customModule="trippy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JvJ-8n-mnx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,6 +182,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-XP-y3m">
                                 <rect key="frame" x="16" y="575" width="343" height="30"/>
                                 <state key="normal" title="Save Trip"/>
+                                <connections>
+                                    <action selector="addTrip:" destination="ihn-9P-xfE" eventType="touchUpInside" id="Svy-L8-BO1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSq-S0-gCb">
                                 <rect key="frame" x="16" y="621" width="343" height="30"/>
@@ -215,7 +218,7 @@
                         <viewLayoutGuide key="safeArea" id="T0f-wS-SqX"/>
                     </view>
                     <connections>
-                        <outlet property="destinationOutlet" destination="IKW-4r-7so" id="BUW-y8-boq"/>
+                        <outlet property="destinationOutlet" destination="IKW-4r-7so" id="z4p-Bh-h09"/>
                         <outlet property="originOutlet" destination="UgI-v4-phN" id="PXO-DP-VcZ"/>
                         <outlet property="titleOutlet" destination="HPb-Cq-Hxv" id="sDZ-Su-wod"/>
                     </connections>

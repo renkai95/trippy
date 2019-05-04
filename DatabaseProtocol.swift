@@ -30,6 +30,6 @@ protocol DatabaseProtocol: AnyObject{
 //    func addListener(listener:DatabaseListener)
 //    func removeListener(listener:DatabaseListener)
 //    func editTask(task:Task)
-    func addTrip(title: String)
+    func addTrip(userID:String,title: String)
     
 }
