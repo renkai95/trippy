@@ -1,8 +1,8 @@
 //
-//  MultiCastDelegate.swift
-//  assignment2
+//  MulticastDelegate.swift
+//  trippy
 //
-//  Created by rk on 12/4/19.
+//  Created by rk on 4/5/19.
 //  Copyright © 2019 Monash University. All rights reserved.
 //
 

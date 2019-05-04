@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+    var databaseController: DatabaseProtocol?
 
     var window: UIWindow?
 
