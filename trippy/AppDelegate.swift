@@ -11,7 +11,7 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     var databaseController: DatabaseProtocol?
-
+    
     var window: UIWindow?
 
 
@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        databaseController = FirebaseController()
         let db = Firestore.firestore()
         return true
     }
