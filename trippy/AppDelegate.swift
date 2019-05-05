@@ -4,10 +4,12 @@
 //
 //  Created by rk on 2/5/19.
 //  Copyright © 2019 Monash University. All rights reserved.
-//
+//AIzaSyDn6wF6a9esTa4iscz7eAq4QlP5uFNva48
 import GoogleSignIn
 import UIKit
 import Firebase
+import GoogleMaps
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     var databaseController: DatabaseProtocol?
@@ -20,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         //GIDSignIn.sharedInstance().clientID = "621271041924-nr7t5ljo4q8119vsnrbt6tlhtnujg7h9.apps.googleusercontent.com"
         //GIDSignIn.sharedInstance().delegate = self
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyDsGHdQSobzHdI1o7JaVkkjdf2c-wnFL18")
+    GMSPlacesClient.provideAPIKey("AIzaSyBFFVfPQeBaQ-bdjvEl85RxBWDT5f6WA2M")
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         databaseController = FirebaseController()

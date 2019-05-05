@@ -18,6 +18,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
     var authController: Auth
     var database: Firestore
     var tripsRef: CollectionReference?
+    var tripRef: DocumentReference?
     override init() {
         // To use Firebase in our application we first must run the FirebaseApp configure method FirebaseApp.configure()
         // We call auth and firestore to get access to these frameworks
@@ -25,7 +26,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
         database = Firestore.firestore()
         
         super.init()
-        //self.setUpListeners()
+        self.setUpListeners()
         // This will START THE PROCESS of signing in with an anonymous account
         // The closure will not execute until its recieved a message back which can be any time later
 
@@ -46,15 +47,18 @@ class FirebaseController: NSObject,DatabaseProtocol{
                     print("Document added with ID: \(docRef!.documentID)")
                 }
     }
+    
+            }
+           
+ 
     func setUpListeners() {
-        tripsRef = database.collection("Trips");
+        tripRef = database.collection("Trips").document(Auth.auth().currentUser!.uid);
         tripsRef?.addSnapshotListener { querySnapshot, error in
             guard (querySnapshot?.documents) != nil else {
                 print("Error fetching documents: \(error!)")
                 return
+                
             }
-           
-    }
 }
 }
 }

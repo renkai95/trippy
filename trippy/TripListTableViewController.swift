@@ -9,7 +9,16 @@
 import UIKit
 
 class TripListTableViewController: UITableViewController {
-
+    //var value:Tasks!
+    let SECTION_TASK=0;
+    let SECTION_COUNT=1;
+    let CELL_TASK="titleCell"
+    let CELL_COUNT="taskCount"
+    //var allTasks: [Tasks]=[]
+    //var filteredTasks: [Tasks]=[]
+    var listenerType=ListenerType.tasks
+    //weak var addTaskDelegate:AddTaskDelegate?
+    weak var databaseController: DatabaseProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
 
