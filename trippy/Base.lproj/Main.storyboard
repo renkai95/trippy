@@ -103,16 +103,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" id="EGP-jc-ePl">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="129" id="EGP-jc-ePl" customClass="TripTableViewCell" customModule="trippy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EGP-jc-ePl" id="luD-BX-81g">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeX-pz-cai">
+                                            <rect key="frame" x="26" y="21" width="34" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZS-1Y-XZf">
+                                            <rect key="frame" x="26" y="52" width="46" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSi-N1-A7z">
+                                            <rect key="frame" x="26" y="83" width="87" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JeX-pz-cai" firstAttribute="leading" secondItem="luD-BX-81g" secondAttribute="leadingMargin" constant="10" id="0PP-SY-gRV"/>
+                                        <constraint firstItem="rSi-N1-A7z" firstAttribute="leading" secondItem="luD-BX-81g" secondAttribute="leadingMargin" constant="10" id="8M9-8X-Idx"/>
+                                        <constraint firstItem="kZS-1Y-XZf" firstAttribute="top" secondItem="JeX-pz-cai" secondAttribute="bottom" constant="10" id="Tvm-ym-nwg"/>
+                                        <constraint firstItem="kZS-1Y-XZf" firstAttribute="leading" secondItem="luD-BX-81g" secondAttribute="leadingMargin" constant="10" id="cfa-xg-rKp"/>
+                                        <constraint firstItem="rSi-N1-A7z" firstAttribute="top" secondItem="kZS-1Y-XZf" secondAttribute="bottom" constant="10" id="h5f-wx-Qx4"/>
+                                        <constraint firstItem="JeX-pz-cai" firstAttribute="top" secondItem="luD-BX-81g" secondAttribute="topMargin" constant="10" id="r4F-Wv-sBc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="destinationOutlet" destination="rSi-N1-A7z" id="frw-rQ-IOr"/>
+                                    <outlet property="originOutlet" destination="kZS-1Y-XZf" id="ArI-33-nHl"/>
+                                    <outlet property="titleOutlet" destination="JeX-pz-cai" id="ThJ-yK-kWZ"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCountCell" id="NET-um-AdJ">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="157" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NET-um-AdJ" id="23V-WI-OKy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

@@ -22,6 +22,7 @@
 		50D8F02E227D675F0085133F /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8F02D227D675F0085133F /* MulticastDelegate.swift */; };
 		50EDF0E2227B432D0020181F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50EDF0E1227B432D0020181F /* credentials.plist */; };
 		50EF7D68227EA0B5008CCECC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF7D67227EA0B5008CCECC /* Trip.swift */; };
+		50EF7D6A227EB032008CCECC /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF7D69227EB032008CCECC /* TripTableViewCell.swift */; };
 		B0B13D402C2C11C8BD13563B /* Pods_trippy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		50D8F02D227D675F0085133F /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		50EDF0E1227B432D0020181F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		50EF7D67227EA0B5008CCECC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		50EF7D69227EB032008CCECC /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.release.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.release.xcconfig"; sourceTree = "<group>"; };
 		A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trippy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46D57B4ADAD30A820BE63E9 /* Pods-trippy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.debug.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				50D8F028227D66960085133F /* Database */,
 				500B69D8227CB3CF00FDC378 /* UserTripListTableViewController.swift */,
 				503F2FE0227ADE150007BA23 /* LoginViewController.swift */,
+				50EF7D69227EB032008CCECC /* TripTableViewCell.swift */,
 				50919752227CBD1500E34817 /* AddTripViewController.swift */,
 				503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */,
 				508828BF227AC0B8000AA7CB /* Assets.xcassets */,
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EF7D6A227EB032008CCECC /* TripTableViewCell.swift in Sources */,
 				50EF7D68227EA0B5008CCECC /* Trip.swift in Sources */,
 				50D8F02C227D672D0085133F /* DatabaseProtocol.swift in Sources */,
 				500B69D9227CB3CF00FDC378 /* UserTripListTableViewController.swift in Sources */,

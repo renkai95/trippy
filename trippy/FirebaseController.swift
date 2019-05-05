@@ -18,7 +18,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
     var authController: Auth
     var database: Firestore
     var tripsRef: CollectionReference?
-    var tripRef: DocumentReference?
+    var tripRef: CollectionReference?
     override init() {
         // To use Firebase in our application we first must run the FirebaseApp configure method FirebaseApp.configure()
         // We call auth and firestore to get access to these frameworks
@@ -31,7 +31,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
         // The closure will not execute until its recieved a message back which can be any time later
 
         // Once we have authenticated we can attach our listeners to the firebase firestore
-        //self.setUpListeners()+0.................................................................................................................0..
+        //self.setUpListeners()
         
     }
     
@@ -42,6 +42,14 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let formatter = DateFormatter()
         formatter.dateFormat = "ddMMyyyyHHmmss"
         let datecode = formatter.string(from: date)
+//        docRef = database.collection("yeet").addDocument(data:[
+//            "the":1]){ err in
+//                if let err = err {
+//                    print("Error adding document: \(err)")
+//                } else {
+//                    print("Document added with ID: \(docRef!.documentID)")
+//                }}
+//        
         docRef = database.collection("Trips").addDocument(data:[
             "userid":trip.uid,
             "docid":datecode,
@@ -60,7 +68,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
            
  
     func setUpListeners() {
-        tripRef = database.collection("Trips").document(Auth.auth().currentUser!.uid);
+        tripRef = database.collection("Trips");
         tripsRef?.addSnapshotListener { querySnapshot, error in
             guard (querySnapshot?.documents) != nil else {
                 print("Error fetching documents: \(error!)")
@@ -69,4 +77,10 @@ class FirebaseController: NSObject,DatabaseProtocol{
             }
 }
 }
-}
+    func addListener(listener: DatabaseListener) { listeners.addDelegate(listener)
+//        if listener.listenerType == ListenerType.team || listener.listenerType == ListenerType.all { listener.onTeamChange(change: .update, teamHeroes: defaultTeam.heroes)
+//        }
+ }
+    func removeListener(listener: DatabaseListener) { listeners.removeDelegate(listener)
+    } }
+

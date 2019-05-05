@@ -27,8 +27,8 @@ protocol DatabaseProtocol: AnyObject{
 //    func addTask(title:String,desc:String,status:String,duedate:NSDate)-> Tasks
 //    func changeStatus(task:Tasks)
 //    func deleteTask(task:Tasks)
-//    func addListener(listener:DatabaseListener)
-//    func removeListener(listener:DatabaseListener)
+    func addListener(listener:DatabaseListener)
+    func removeListener(listener:DatabaseListener)
 //    func editTask(task:Task)
     func addTrip(tripToAdd:Trip)
     
