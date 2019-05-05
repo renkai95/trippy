@@ -19,14 +19,16 @@ class FirebaseController: NSObject,DatabaseProtocol{
     var database: Firestore
     var tripsRef: CollectionReference?
     var tripRef: CollectionReference?
+    var tripList: [Trip]
     override init() {
         // To use Firebase in our application we first must run the FirebaseApp configure method FirebaseApp.configure()
         // We call auth and firestore to get access to these frameworks
         authController = Auth.auth()
         database = Firestore.firestore()
-        
+         self.tripList = [Trip]()
         super.init()
         self.setUpListeners()
+       
         // This will START THE PROCESS of signing in with an anonymous account
         // The closure will not execute until its recieved a message back which can be any time later
 
@@ -77,10 +79,29 @@ class FirebaseController: NSObject,DatabaseProtocol{
             }
 }
 }
-    func addListener(listener: DatabaseListener) { listeners.addDelegate(listener)
-//        if listener.listenerType == ListenerType.team || listener.listenerType == ListenerType.all { listener.onTeamChange(change: .update, teamHeroes: defaultTeam.heroes)
-//        }
+    func parseTripsSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
+        let documentRef = change.document.documentID
+        let title = change.document.data()["title"] as! String
+        let origin = change.document.data()["origin"] as! String
+        let destination = change.document.data()["destination"] as! String
+        let uid = change.document.data()["uid"] as! String
+        //let abilities = change.document.data()["abilities"] as! String print(documentRef)
+        if change.type == .added {
+            print("New Task: \(change.document.data())")
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination)
+
+            tripList.append(newTrip) }
+
  }
+        listeners.invoke { (listener) in
+            if listener.listenerType == ListenerType.trips || listener.listenerType == ListenerType.all {
+                listener.onTripListChange(change: .update, trips: tripList) }
+        } }
+    func addListener(listener: DatabaseListener) {
+        listeners.addDelegate(listener)
+        listener.onTripListChange(change: .update, trips: tripList)
+    }
     func removeListener(listener: DatabaseListener) { listeners.removeDelegate(listener)
     } }
+
 

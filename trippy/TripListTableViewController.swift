@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TripListTableViewController: UITableViewController,UISearchResultsUpdating {
+class TripListTableViewController: UITableViewController,UISearchResultsUpdating,DatabaseListener {
+    var listenerType=ListenerType.trips
+    
     var value:Trip!
     let SECTION_TRIP=0;
     let SECTION_COUNT=1;
@@ -72,7 +74,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tripCell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        //let tripCell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         if indexPath.section==SECTION_TRIP{
             let tripCell=tableView.dequeueReusableCell(withIdentifier: CELL_TRIP, for: indexPath) as! TripTableViewCell
             let trip=filteredTrips[indexPath.row]
@@ -112,7 +114,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //databaseController?.addListener(listener: self)
+        databaseController?.addListener(listener: self)
         
     }
     
@@ -122,7 +124,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //databaseController?.removeListener(listener: self)
+        databaseController?.removeListener(listener: self)
     }
     
     /*
