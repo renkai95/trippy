@@ -118,9 +118,10 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
 //
     @IBAction func addTrip(_ sender: Any) {
         if titleOutlet.text != "" {
-            let title = titleOutlet.text!
-            let uid = Auth.auth().currentUser!.uid
-            let _ = databaseController!.addTrip(userID:uid, title: title)
+            let newTrip = Trip(uid:Auth.auth().currentUser!.uid,title:titleOutlet.text!,origin:originOutlet.text!,destination:destinationOutlet.text!)
+            
+          
+            let _ = databaseController!.addTrip(tripToAdd:newTrip)
         }
     }
     /*

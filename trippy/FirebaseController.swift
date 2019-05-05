@@ -35,12 +35,19 @@ class FirebaseController: NSObject,DatabaseProtocol{
         
     }
     
-    func addTrip(userID:String,title:String){
+    func addTrip(tripToAdd:Trip){
+        let trip = tripToAdd
         var docRef: DocumentReference? = nil
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyyHHmmss"
+        let datecode = formatter.string(from: date)
         docRef = database.collection("Trips").addDocument(data:[
-            "userid":userID,
-            "docid":[".sv": "timestamp"],
-            "title":title
+            "userid":trip.uid,
+            "docid":datecode,
+            "title":trip.title,
+            "origin":trip.origin,
+            "destination":trip.destination
                 ]){ err in
                 if let err = err {
                     print("Error adding document: \(err)")
