@@ -40,7 +40,8 @@ class FirebaseController: NSObject,DatabaseProtocol{
         docRef = database.collection("Trips").addDocument(data:[
             "userid":userID,
             "docid":[".sv": "timestamp"],
-            "title":title]){ err in
+            "title":title
+                ]){ err in
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {

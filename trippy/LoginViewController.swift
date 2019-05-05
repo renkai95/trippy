@@ -34,6 +34,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
     }
     */
     @IBAction func didTapSignOut(_ sender: AnyObject) {
+        print("signedout")
         GIDSignIn.sharedInstance().signOut()
     }
 }

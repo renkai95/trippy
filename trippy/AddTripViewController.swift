@@ -157,6 +157,14 @@ extension AddTripViewController: GMSAutocompleteResultsViewControllerDelegate {
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         // Do something with the selected place.
+        if originOutlet.text == ""{
+            originOutlet.text=place.formattedAddress
+            
+        }
+        else {
+            if destinationOutlet.text == "" {
+            destinationOutlet.text = place.formattedAddress
+            }}
         print("Place name: \(place.name)")
         print("Place address: \(String(describing: place.formattedAddress))")
         print("Place attributions: \(place.attributions)")
