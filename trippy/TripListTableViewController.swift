@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class TripListTableViewController: UITableViewController,UISearchResultsUpdating,DatabaseListener {
+
     var listenerType=ListenerType.trips
-    
+    var authController: Auth!
     var value:Trip!
     let SECTION_TRIP=0;
     let SECTION_COUNT=1;
@@ -23,8 +24,10 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
     //weak var addTaskDelegate:AddTaskDelegate?
     weak var databaseController: DatabaseProtocol?
     override func viewDidLoad() {
+        authController = Auth.auth()
         super.viewDidLoad()
         filteredTrips=allTrips
+        print(allTrips)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +38,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
         let searchController = UISearchController(searchResultsController: nil);
         searchController.searchResultsUpdater=self
         searchController.obscuresBackgroundDuringPresentation=false
-        searchController.searchBar.placeholder="Search Tasks"
+        searchController.searchBar.placeholder="Search Trips"
         navigationItem.searchController=searchController
         definesPresentationContext=true
     }
@@ -119,14 +122,19 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
     }
     
     func onTripList(change:DatabaseChange,trips:[Trip]){
- 
+        allTrips=trips
         updateSearchResults(for: navigationItem.searchController!)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         databaseController?.removeListener(listener: self)
     }
-    
+    func onTripListChange(change:DatabaseChange,trips:[Trip]){
+        allTrips=trips.filter({(trip:Trip)->Bool in
+            return (trip.uid==Auth.auth().currentUser!.uid)
+        })
+        updateSearchResults(for: navigationItem.searchController!)
+    }
     /*
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -172,7 +180,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
         // Pass the selected object to the new view controller.
     }
     
-     func addTask(newTrip: Trip) -> Bool {
+     func addTrip(newTrip: Trip) -> Bool {
      allTrips.append(newTrip)
      filteredTrips.append(newTrip)
      tableView.beginUpdates()

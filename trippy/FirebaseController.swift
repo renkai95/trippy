@@ -70,14 +70,14 @@ class FirebaseController: NSObject,DatabaseProtocol{
            
  
     func setUpListeners() {
-        tripRef = database.collection("Trips");
+        tripsRef = database.collection("Trips")
         tripsRef?.addSnapshotListener { querySnapshot, error in
-            guard (querySnapshot?.documents) != nil else {
-                print("Error fetching documents: \(error!)")
-                return
-                
+            guard (querySnapshot?.documents) != nil
+                else { print("Error fetching documents: \(error!)")
+                    return
             }
-}
+            self.parseTripsSnapshot(snapshot: querySnapshot!) }
+
 }
     func parseTripsSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
         let documentRef = change.document.documentID
@@ -90,7 +90,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
             print("New Task: \(change.document.data())")
             let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination)
 
-            tripList.append(newTrip) }
+            tripList.append(newTrip) }}
 
  }
         listeners.invoke { (listener) in
@@ -98,10 +98,12 @@ class FirebaseController: NSObject,DatabaseProtocol{
                 listener.onTripListChange(change: .update, trips: tripList) }
         } }
     func addListener(listener: DatabaseListener) {
+        print(tripList)
         listeners.addDelegate(listener)
         listener.onTripListChange(change: .update, trips: tripList)
     }
     func removeListener(listener: DatabaseListener) { listeners.removeDelegate(listener)
-    } }
+}
 
 
+}
