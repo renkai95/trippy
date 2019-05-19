@@ -170,7 +170,7 @@
                                     <outlet property="destinationOutlet" destination="rSi-N1-A7z" id="frw-rQ-IOr"/>
                                     <outlet property="originOutlet" destination="kZS-1Y-XZf" id="ArI-33-nHl"/>
                                     <outlet property="titleOutlet" destination="JeX-pz-cai" id="ThJ-yK-kWZ"/>
-                                    <segue destination="6eM-xy-fxO" kind="show" id="kk2-Tt-1SE"/>
+                                    <segue destination="6eM-xy-fxO" kind="show" identifier="tripMapSegue" id="kk2-Tt-1SE"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCountCell" id="NET-um-AdJ">
@@ -197,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abY-ZF-eI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="149.77511244377811"/>
+            <point key="canvasLocation" x="2462" y="243"/>
         </scene>
         <!--Add Trip View Controller-->
         <scene sceneID="kQU-vK-ORI">
