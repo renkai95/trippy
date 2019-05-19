@@ -84,7 +84,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let title = change.document.data()["title"] as! String
         let origin = change.document.data()["origin"] as! String
         let destination = change.document.data()["destination"] as! String
-        let uid = change.document.data()["uid"] as! String
+        let uid = change.document.data()["userid"] as! String
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
@@ -92,7 +92,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
 
             tripList.append(newTrip) }}
 
- }
+ 
         listeners.invoke { (listener) in
             if listener.listenerType == ListenerType.trips || listener.listenerType == ListenerType.all {
                 listener.onTripListChange(change: .update, trips: tripList) }
