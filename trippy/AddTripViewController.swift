@@ -17,6 +17,8 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
     @IBOutlet weak var originOutlet: UITextField!
    
     @IBOutlet weak var destinationOutlet: UITextField!
+    var originPlaceID: String!
+    var finishedPlaceID: String!
     var placesClient: GMSPlacesClient!
     let locationManager = CLLocationManager()
     var resultsViewController: GMSAutocompleteResultsViewController?
@@ -82,7 +84,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
         
         // When UISearchController presents the results view, present it in
         // this view controller, not one further up the chain.
-        definesPresentationContext = true
+        //definesPresentationContext = true
     }
     
     func addToPopover(){
@@ -118,7 +120,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
 //
     @IBAction func addTrip(_ sender: Any) {
         if titleOutlet.text != "" {
-            let newTrip = Trip(uid:Auth.auth().currentUser!.uid,title:titleOutlet.text!,origin:originOutlet.text!,destination:destinationOutlet.text!)
+            let newTrip = Trip(uid:Auth.auth().currentUser!.uid,title:titleOutlet.text!,origin:originOutlet.text!,destination:destinationOutlet.text!,originid:originPlaceID,destid:finishedPlaceID)
             
           
             let _ = databaseController!.addTrip(tripToAdd:newTrip)
@@ -160,11 +162,12 @@ extension AddTripViewController: GMSAutocompleteResultsViewControllerDelegate {
         // Do something with the selected place.
         if originOutlet.text == ""{
             originOutlet.text=place.formattedAddress
-            
+            originPlaceID = place.placeID
         }
         else {
             if destinationOutlet.text == "" {
             destinationOutlet.text = place.formattedAddress
+            finishedPlaceID = place.placeID
             }}
         print("Place name: \(place.name)")
         print("Place address: \(String(describing: place.formattedAddress))")

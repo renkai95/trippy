@@ -13,10 +13,14 @@ class Trip: NSObject {
     var origin: String
     var destination: String
     var uid: String
-    init (uid: String,title:String,origin:String,destination:String){
+    var originid: String
+    var destid: String
+    init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String){
         self.title = title
         self.origin = origin
         self.destination = destination
         self.uid=uid
+        self.originid = originid
+        self.destid = destid
     }
 }

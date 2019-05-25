@@ -57,7 +57,9 @@ class FirebaseController: NSObject,DatabaseProtocol{
             "docid":datecode,
             "title":trip.title,
             "origin":trip.origin,
-            "destination":trip.destination
+            "destination":trip.destination,
+            "originid":trip.originid,
+            "destid":trip.destid
                 ]){ err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -85,10 +87,12 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let origin = change.document.data()["origin"] as! String
         let destination = change.document.data()["destination"] as! String
         let uid = change.document.data()["userid"] as! String
+        let originid = change.document.data()["originid"] as! String
+        let destid = change.document.data()["destid"] as! String
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
-            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination)
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid)
 
             tripList.append(newTrip) }}
 
