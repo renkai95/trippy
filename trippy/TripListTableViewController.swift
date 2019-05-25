@@ -171,10 +171,10 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
         
         if (segue.identifier == "taskDetailSegue") {
             // initialize new view controller and cast it as your view controller
-            //let viewController = segue.destination as! TaskDetailViewController
+            let viewController = segue.destination as! ViewTripViewController
             // your new view controller should have property that will store passed value
-            //print(value.title!)
-            //viewController.passedValue = value
+            print(value.title)
+            viewController.passedValue = value
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

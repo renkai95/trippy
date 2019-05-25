@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 
 class ViewTripViewController: UIViewController,GMSMapViewDelegate {
-
+    var passedValue:Trip!
     override func viewDidLoad() {
         super.viewDidLoad()
 
