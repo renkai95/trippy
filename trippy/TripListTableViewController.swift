@@ -40,7 +40,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
         searchController.obscuresBackgroundDuringPresentation=false
         searchController.searchBar.placeholder="Search Trips"
         navigationItem.searchController=searchController
-        definesPresentationContext=true
+        //definesPresentationContext=true
     }
 
     // MARK: - Table view data source
