@@ -10,8 +10,8 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import Alamofire
-import SwiftyJson
-class ViewTripViewController: UIViewController,DatabaseListener {
+import SwiftyJSON
+class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate {
     func onTripListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
     }
@@ -53,11 +53,40 @@ class ViewTripViewController: UIViewController,DatabaseListener {
         let cameraUpdate = GMSCameraUpdate.fit(mapBounds)
         mapView.moveCamera(cameraUpdate)
         
-        
+        drawLine()
         //setUpMap()
         //view=tempmapView
 
         // Do any additional setup after loading the view.
+    }
+    
+    func drawLine(){
+        // function adapted from  Agus Cahyono https://github.com/balitax/Google-Maps-Direction/blob/master/Maps%20Direction/ViewController.swift
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(passedValue.originLat),\(passedValue.originLong)&destination=\(passedValue.destLat),\(passedValue.destLong)&mode=driving&key=AIzaSyDsGHdQSobzHdI1o7JaVkkjdf2c-wnFL18"
+        Alamofire.request(url).responseJSON { response in
+            print(response.response as Any)
+            print(response.data as Any)     // server data
+            print(response.result as Any)
+            do{
+                let json = try! JSON(data:response.data!)
+                let routes = json["routes"].arrayValue
+                
+                for route in routes{
+                    let routePolyline = route["overview_polyline"].dictionary
+                    let markers = routePolyline?["points"]?.stringValue
+                    let path = GMSPath.init(fromEncodedPath:markers!)
+                    let polyline = GMSPolyline.init(path:path)
+                    polyline.strokeWidth = 4
+                    polyline.strokeColor = UIColor.blue
+                    polyline.map = self.mapView
+                }
+            }
+            catch let error as NSError {
+                print("cannot get json")
+            }
+ 
+            
+        }
     }
    
     }
