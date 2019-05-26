@@ -35,7 +35,7 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         //let tempmapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         //self.mapView.clear()
-        self.mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 20, width: 430, height: 500), camera: GMSCameraPosition.camera(withLatitude: passedValue.originLat, longitude: passedValue.originLong, zoom: 14.0))
+        self.mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 20, width: 430, height: 700), camera: GMSCameraPosition.camera(withLatitude: passedValue.originLat, longitude: passedValue.originLong, zoom: 14.0))
         self.view.addSubview(mapView!)
         let path = GMSMutablePath()
         let originMarker = GMSMarker()
@@ -55,13 +55,13 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         mapView.moveCamera(cameraUpdate)
         
         drawLine()
-        let textView = UITextView(frame: CGRect(x: 0, y: 600, width: 430, height: 400.0))
+        let textView = UITextView(frame: CGRect(x: 0, y: 600, width: 430, height: 500.0))
         self.automaticallyAdjustsScrollViewInsets = false
         
         //textView.center = self.view.center
         textView.textAlignment = NSTextAlignment.justified
         textView.textColor = UIColor.blue
-        textView.backgroundColor = UIColor.cyan
+        textView.backgroundColor = UIColor.gray
         self.view.addSubview(textView)
         //setUpMap()
         //view=tempmapView
