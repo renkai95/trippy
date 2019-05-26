@@ -11,6 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
+import MessageKit
 class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate {
     func onTripListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
@@ -54,6 +55,14 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         mapView.moveCamera(cameraUpdate)
         
         drawLine()
+        let textView = UITextView(frame: CGRect(x: 0, y: 600, width: 430, height: 400.0))
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        //textView.center = self.view.center
+        textView.textAlignment = NSTextAlignment.justified
+        textView.textColor = UIColor.blue
+        textView.backgroundColor = UIColor.cyan
+        self.view.addSubview(textView)
         //setUpMap()
         //view=tempmapView
 

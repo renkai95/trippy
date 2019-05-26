@@ -14,7 +14,7 @@ pod 'FirebaseUI/Phone'
 pod 'GoogleSignIn'
 pod 'Alamofire', '4.4.0'
 pod 'SwiftyJSON', '4.2.0'
-
+pod 'MessageKit'
   # Pods for trippy
 
 end

@@ -101,32 +101,6 @@
                     <view key="view" contentMode="scaleToFill" id="qr9-1n-AWa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E82-HG-xxg">
-                                <rect key="frame" x="0.0" y="476" width="375" height="191"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMW-Tk-4Rs">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-98-eD0">
-                                        <rect key="frame" x="8" y="145" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="RMW-Tk-4Rs" firstAttribute="leading" secondItem="E82-HG-xxg" secondAttribute="leading" id="7em-W9-ADA"/>
-                                    <constraint firstItem="RMW-Tk-4Rs" firstAttribute="top" secondItem="E82-HG-xxg" secondAttribute="top" id="l4C-aY-qtt"/>
-                                    <constraint firstAttribute="trailing" secondItem="RMW-Tk-4Rs" secondAttribute="trailing" id="uK4-lE-kh0"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AYR-uO-4Qt"/>
                     </view>
@@ -329,7 +303,6 @@
         <!--Navigation Controller-->
         <scene sceneID="019-tJ-gYw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHD-ca-UqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I2f-2f-E6i" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRw-XA-X1s">
@@ -341,6 +314,7 @@
                         <segue destination="dkW-Jz-9Ns" kind="relationship" relationship="rootViewController" id="qmJ-eK-HyB"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHD-ca-UqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1458" y="1012"/>
         </scene>
