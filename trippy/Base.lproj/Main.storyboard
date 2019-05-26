@@ -102,13 +102,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCw-Jw-3yX" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="458"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E82-HG-xxg">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E82-HG-xxg">
                                 <rect key="frame" x="0.0" y="476" width="375" height="191"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMW-Tk-4Rs">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="RMW-Tk-4Rs" firstAttribute="leading" secondItem="E82-HG-xxg" secondAttribute="leading" id="7em-W9-ADA"/>
+                                    <constraint firstItem="RMW-Tk-4Rs" firstAttribute="top" secondItem="E82-HG-xxg" secondAttribute="top" id="l4C-aY-qtt"/>
+                                    <constraint firstAttribute="trailing" secondItem="RMW-Tk-4Rs" secondAttribute="trailing" id="uK4-lE-kh0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCw-Jw-3yX" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="79" width="321" height="369"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -116,6 +129,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AYR-uO-4Qt"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="PCw-Jw-3yX" id="OFI-sS-0Ek"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KH1-aJ-fn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +186,6 @@
                                     <outlet property="destinationOutlet" destination="rSi-N1-A7z" id="frw-rQ-IOr"/>
                                     <outlet property="originOutlet" destination="kZS-1Y-XZf" id="ArI-33-nHl"/>
                                     <outlet property="titleOutlet" destination="JeX-pz-cai" id="ThJ-yK-kWZ"/>
-                                    <segue destination="6eM-xy-fxO" kind="show" identifier="tripMapSegue" id="kk2-Tt-1SE"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCountCell" id="NET-um-AdJ">
@@ -194,6 +209,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="6eM-xy-fxO" kind="show" identifier="tripMapSegue" id="UsQ-HM-xDF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abY-ZF-eI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -313,6 +331,7 @@
         <!--Navigation Controller-->
         <scene sceneID="019-tJ-gYw">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHD-ca-UqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I2f-2f-E6i" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRw-XA-X1s">
@@ -324,7 +343,6 @@
                         <segue destination="dkW-Jz-9Ns" kind="relationship" relationship="rootViewController" id="qmJ-eK-HyB"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHD-ca-UqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1458" y="1012"/>
         </scene>

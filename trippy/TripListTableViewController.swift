@@ -169,7 +169,7 @@ class TripListTableViewController: UITableViewController,UISearchResultsUpdating
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
-        if (segue.identifier == "taskDetailSegue") {
+        if (segue.identifier == "tripMapSegue") {
             // initialize new view controller and cast it as your view controller
             let viewController = segue.destination as! ViewTripViewController
             // your new view controller should have property that will store passed value

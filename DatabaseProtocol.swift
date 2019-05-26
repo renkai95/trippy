@@ -15,7 +15,7 @@ enum DatabaseChange{
     
 }
 enum ListenerType{
-    
+    case messages
     case trips
     case all
 }

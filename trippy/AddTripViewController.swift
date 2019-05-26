@@ -24,6 +24,11 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
+    var originPlaceLong : Double?
+    var originPlaceLat : Double?
+    
+    var destinationPlaceLong : Double?
+    var destinationPlaceLat : Double?
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate=UIApplication.shared.delegate as! AppDelegate
@@ -120,7 +125,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
 //
     @IBAction func addTrip(_ sender: Any) {
         if titleOutlet.text != "" {
-            let newTrip = Trip(uid:Auth.auth().currentUser!.uid,title:titleOutlet.text!,origin:originOutlet.text!,destination:destinationOutlet.text!,originid:originPlaceID,destid:finishedPlaceID)
+            let newTrip = Trip(uid:Auth.auth().currentUser!.uid,title:titleOutlet.text!,origin:originOutlet.text!,destination:destinationOutlet.text!,originid:originPlaceID,destid:finishedPlaceID,originLong:originPlaceLong!,originLat:originPlaceLat!,destLong:destinationPlaceLong!,destLat:destinationPlaceLat!)
             
           
             let _ = databaseController!.addTrip(tripToAdd:newTrip)
@@ -163,11 +168,15 @@ extension AddTripViewController: GMSAutocompleteResultsViewControllerDelegate {
         if originOutlet.text == ""{
             originOutlet.text=place.formattedAddress
             originPlaceID = place.placeID
+            originPlaceLong = place.coordinate.longitude
+            originPlaceLat = place.coordinate.latitude
         }
         else {
             if destinationOutlet.text == "" {
             destinationOutlet.text = place.formattedAddress
             finishedPlaceID = place.placeID
+            destinationPlaceLong = place.coordinate.longitude
+            destinationPlaceLat = place.coordinate.latitude
             }}
         print("Place name: \(place.name)")
         print("Place address: \(String(describing: place.formattedAddress))")

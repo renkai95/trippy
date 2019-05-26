@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GooglePlaces
 class Trip: NSObject {
     var title: String
     var origin: String
@@ -15,12 +15,20 @@ class Trip: NSObject {
     var uid: String
     var originid: String
     var destid: String
-    init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String){
+    var originLong: Double
+    var originLat:Double
+    var destLong:Double
+    var destLat: Double
+    init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String,originLong:Double,originLat:Double,destLong:Double,destLat:Double){
         self.title = title
         self.origin = origin
         self.destination = destination
         self.uid=uid
         self.originid = originid
         self.destid = destid
+        self.originLat = originLat
+        self.originLong = originLong
+        self.destLat = destLat
+        self.destLong = destLong
     }
 }

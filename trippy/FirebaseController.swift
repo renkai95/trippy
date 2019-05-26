@@ -12,6 +12,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import GooglePlaces
 
 class FirebaseController: NSObject,DatabaseProtocol{
     var listeners = MulticastDelegate<DatabaseListener>()
@@ -59,7 +60,11 @@ class FirebaseController: NSObject,DatabaseProtocol{
             "origin":trip.origin,
             "destination":trip.destination,
             "originid":trip.originid,
-            "destid":trip.destid
+            "destid":trip.destid,
+            "originLong":trip.originLong,
+            "originLat":trip.originLat,
+            "destLong":trip.destLong,
+            "destLat":trip.destLat
                 ]){ err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -89,10 +94,14 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let uid = change.document.data()["userid"] as! String
         let originid = change.document.data()["originid"] as! String
         let destid = change.document.data()["destid"] as! String
+        let originLong = change.document.data()["originLong"] as! Double
+        let originLat = change.document.data()["originLat"] as! Double
+        let destLong = change.document.data()["destLong"] as! Double
+        let destLat = change.document.data()["destLat"] as! Double
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
-            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid)
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat)
 
             tripList.append(newTrip) }}
 
