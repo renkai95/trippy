@@ -12,6 +12,8 @@ pod 'FirebaseUI/Auth'
 pod 'FirebaseUI/Google'
 pod 'FirebaseUI/Phone'
 pod 'GoogleSignIn'
+pod 'Alamofire'
+pod 'SwiftyJSON'
 
   # Pods for trippy
 

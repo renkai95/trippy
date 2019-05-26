@@ -9,7 +9,9 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
-class ViewTripViewController: UIViewController,GMSMapViewDelegate,DatabaseListener {
+import Alamofire
+import SwiftyJson
+class ViewTripViewController: UIViewController,DatabaseListener {
     func onTripListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
     }
@@ -18,7 +20,7 @@ class ViewTripViewController: UIViewController,GMSMapViewDelegate,DatabaseListen
     //weak var camera : GMSCameraPosition?
     //weak var mapView : GMSMapView?
     
-    @IBOutlet weak var mapView: GMSMapView!
+    var mapView: GMSMapView!
     //var listenerType: ListenerType
     
     var listenerType=ListenerType.messages
@@ -28,10 +30,30 @@ class ViewTripViewController: UIViewController,GMSMapViewDelegate,DatabaseListen
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getPlaceByID(originPl1aceID: passedValue.originid, destinationPlaceID: passedValue.destid)
-        let camera = GMSCameraPosition.camera(withLatitude: passedValue.originLat, longitude: passedValue.originLong, zoom: 10.0)
-        let tempmapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        self.mapView.clear()
-        self.view.addSubview(tempmapView)
+        //let camera = GMSCameraPosition.camera(withLatitude: passedValue.originLat, longitude: passedValue.originLong, zoom: 10.0)
+        //let tempmapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        
+        //self.mapView.clear()
+        self.mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 20, width: 430, height: 500), camera: GMSCameraPosition.camera(withLatitude: passedValue.originLat, longitude: passedValue.originLong, zoom: 14.0))
+        self.view.addSubview(mapView!)
+        let path = GMSMutablePath()
+        let originMarker = GMSMarker()
+        originMarker.position =  CLLocationCoordinate2D(latitude:passedValue.originLat, longitude:passedValue.originLong)
+        path.add(originMarker.position)
+        originMarker.title = "Start"
+        originMarker.snippet = passedValue.title
+        originMarker.map = mapView
+        let destMarker = GMSMarker()
+        destMarker.position =  CLLocationCoordinate2D(latitude:passedValue.destLat, longitude:passedValue.destLong)
+        path.add(destMarker.position)
+        destMarker.title = "End"
+        destMarker.snippet = passedValue.destination
+        destMarker.map = mapView
+        let mapBounds = GMSCoordinateBounds(path: path)
+        let cameraUpdate = GMSCameraUpdate.fit(mapBounds)
+        mapView.moveCamera(cameraUpdate)
+        
+        
         //setUpMap()
         //view=tempmapView
 
