@@ -23,7 +23,7 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
     
     var mapView: GMSMapView!
     //var listenerType: ListenerType
-    
+    var location = CLLocationManager()
     var listenerType=ListenerType.messages
     weak var databaseController: DatabaseProtocol?
     
@@ -65,7 +65,10 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         self.view.addSubview(textView)
         //setUpMap()
         //view=tempmapView
-
+        location.delegate = self
+        location.requestWhenInUseAuthorization()
+        location.desiredAccuracy = kCLLocationAccuracyBest
+        location.startUpdatingLocation()
         // Do any additional setup after loading the view.
     }
     
@@ -73,9 +76,7 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         // function adapted from  Agus Cahyono https://github.com/balitax/Google-Maps-Direction/blob/master/Maps%20Direction/ViewController.swift
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(passedValue.originLat),\(passedValue.originLong)&destination=\(passedValue.destLat),\(passedValue.destLong)&mode=driving&key=AIzaSyDsGHdQSobzHdI1o7JaVkkjdf2c-wnFL18"
         Alamofire.request(url).responseJSON { response in
-            print(response.response as Any)
-            print(response.data as Any)     // server data
-            print(response.result as Any)
+
             do{
                 let json = try! JSON(data:response.data!)
                 let routes = json["routes"].arrayValue
@@ -97,6 +98,17 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
             
         }
     }
+    func getLocation(manager: CLLocationManager,didUpdateLocations locations: [CLLocation]){
+        let userLocation = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
+        let marker = GMSMarker(position: userLocation)
+        marker.map = self.mapView
+        location.stopUpdatingLocation()
+
+    }
+    
+    
+    
+    
    
     }
 
