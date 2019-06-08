@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import FirebaseAuth
 //import Firebase
 
 class LoginViewController: UIViewController,GIDSignInUIDelegate {
@@ -22,7 +23,19 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         
         // Do any additional setup after loading the view.
     }
-    
+    @IBAction func loginPrepare(_ sender: UIButton) {
+        print("ohno")
+        //print(Auth.auth().currentUser?.uid)
+        
+        if  Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
+        else{
+            self.displayMessage(title: "ERROR", message: "Please Google Sign in first!")
+            }
+        
+    }
+
     
     /*
     // MARK: - Navigation
@@ -36,5 +49,15 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
     @IBAction func didTapSignOut(_ sender: AnyObject) {
         print("signedout")
         GIDSignIn.sharedInstance().signOut()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginNav")
+//
+//        self.present(initialViewController, animated: false)
+    }
+    func displayMessage(title:String,message:String){
+        let alertController=UIAlertController(title:title,message:message,preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title:"Dismiss",style:UIAlertAction.Style.default,handler:nil))
+        self.present(alertController,animated:true,completion: nil)
     }
 }
