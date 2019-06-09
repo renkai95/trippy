@@ -37,7 +37,32 @@ class FirebaseController: NSObject,DatabaseProtocol{
         //self.setUpListeners()
         
     }
-    
+    func addUser(email: String, trip: Trip) {
+        var docRef: DocumentReference? = nil
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyyHHmmss"
+        let datecode = formatter.string(from: date)
+        docRef=database.collection("Users").document(email).collection("Trips").addDocument(data:[
+            "userid":trip.uid,
+            "docid":datecode,
+            "title":trip.title,
+            "origin":trip.origin,
+            "destination":trip.destination,
+            "originid":trip.originid,
+            "destid":trip.destid,
+            "originLong":trip.originLong,
+            "originLat":trip.originLat,
+            "destLong":trip.destLong,
+            "destLat":trip.destLat
+        ]){ err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(docRef!.documentID)")
+            }
+        }
+    }
     func addTrip(tripToAdd:Trip){
         let trip = tripToAdd
         var docRef: DocumentReference? = nil
