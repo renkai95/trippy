@@ -79,11 +79,13 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let tripCell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         if indexPath.section==SECTION_TRIP{
-            let tripCell=tableView.dequeueReusableCell(withIdentifier: CELL_TRIP, for: indexPath) as! TripTableViewCell
+            let tripCell=tableView.dequeueReusableCell(withIdentifier: CELL_TRIP, for: indexPath) as! SharedTableViewCell
             let trip=filteredTrips[indexPath.row]
-            tripCell.titleOutlet.text=trip.title
-            tripCell.originOutlet.text=trip.origin
-            tripCell.destinationOutlet.text = trip.destination
+            tripCell.sharedTitleOutlet.text=trip.title
+            tripCell.sharedOriginOutlet.text=trip.origin
+            tripCell.sharedDestinationOutlet.text = trip.destination
+            tripCell.sharedUserOutlet.text = trip.destination
+            
             //titleCell.dueOutlet.text=date2String(task.duedate!)
             
             return tripCell

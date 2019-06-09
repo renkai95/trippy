@@ -21,6 +21,7 @@
 		50D8F02E227D675F0085133F /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8F02D227D675F0085133F /* MulticastDelegate.swift */; };
 		50E5220E22AC2F8C0073A5B4 /* SharedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5220D22AC2F8C0073A5B4 /* SharedTableViewController.swift */; };
 		50E5221022AC3D580073A5B4 /* SharedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5220F22AC3D580073A5B4 /* SharedTableViewCell.swift */; };
+		50EB43B622ACE2520092C40E /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EB43B522ACE2520092C40E /* AddUserViewController.swift */; };
 		50EDF0E2227B432D0020181F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50EDF0E1227B432D0020181F /* credentials.plist */; };
 		50EF7D68227EA0B5008CCECC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF7D67227EA0B5008CCECC /* Trip.swift */; };
 		50EF7D6A227EB032008CCECC /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF7D69227EB032008CCECC /* TripTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		50D8F02D227D675F0085133F /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		50E5220D22AC2F8C0073A5B4 /* SharedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTableViewController.swift; sourceTree = "<group>"; };
 		50E5220F22AC3D580073A5B4 /* SharedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTableViewCell.swift; sourceTree = "<group>"; };
+		50EB43B522ACE2520092C40E /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		50EDF0E1227B432D0020181F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		50EF7D67227EA0B5008CCECC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		50EF7D69227EB032008CCECC /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				503F2FE0227ADE150007BA23 /* LoginViewController.swift */,
 				50EF7D69227EB032008CCECC /* TripTableViewCell.swift */,
 				50E5220F22AC3D580073A5B4 /* SharedTableViewCell.swift */,
+				50EB43B522ACE2520092C40E /* AddUserViewController.swift */,
 				50919752227CBD1500E34817 /* AddTripViewController.swift */,
 				503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */,
 				50E5220D22AC2F8C0073A5B4 /* SharedTableViewController.swift */,
@@ -328,6 +331,7 @@
 				508828BB227AC0B5000AA7CB /* ViewController.swift in Sources */,
 				503F2FE3227ADE2A0007BA23 /* TripListTableViewController.swift in Sources */,
 				508828B9227AC0B5000AA7CB /* AppDelegate.swift in Sources */,
+				50EB43B622ACE2520092C40E /* AddUserViewController.swift in Sources */,
 				50919753227CBD1500E34817 /* AddTripViewController.swift in Sources */,
 				50D8F02E227D675F0085133F /* MulticastDelegate.swift in Sources */,
 			);

@@ -10,12 +10,11 @@ import UIKit
 
 class SharedTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleOutlet: UILabel!
-
-    @IBOutlet weak var originOutlet: UILabel!
-    @IBOutlet weak var destinationOutlet: UILabel!
+    @IBOutlet weak var sharedTitleOutlet: UILabel!
+    @IBOutlet weak var sharedOriginOutlet: UILabel!
     
-    @IBOutlet weak var userOutlet: UILabel!
+    @IBOutlet weak var sharedUserOutlet: UILabel!
+    @IBOutlet weak var sharedDestinationOutlet: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

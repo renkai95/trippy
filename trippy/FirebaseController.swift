@@ -52,7 +52,8 @@ class FirebaseController: NSObject,DatabaseProtocol{
 //                } else {
 //                    print("Document added with ID: \(docRef!.documentID)")
 //                }}
-//        
+//
+        database.collection("Users").document((Auth.auth().currentUser?.email)!).setData(["userid":trip.uid])
         docRef = database.collection("Trips").addDocument(data:[
             "userid":trip.uid,
             "docid":datecode,
