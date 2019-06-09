@@ -27,7 +27,10 @@ class FirebaseController: NSObject,DatabaseProtocol{
         // To use Firebase in our application we first must run the FirebaseApp configure method FirebaseApp.configure()
         // We call auth and firestore to get access to these frameworks
         authController = Auth.auth()
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = false
         database = Firestore.firestore()
+        database.settings = settings
          self.tripList = [Trip]()
         self.userList=[Trip]()
         super.init()
@@ -57,7 +60,8 @@ class FirebaseController: NSObject,DatabaseProtocol{
             "originLong":trip.originLong,
             "originLat":trip.originLat,
             "destLong":trip.destLong,
-            "destLat":trip.destLat
+            "destLat":trip.destLat,
+            "email":trip.email
         ]){ err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -93,7 +97,8 @@ class FirebaseController: NSObject,DatabaseProtocol{
             "originLong":trip.originLong,
             "originLat":trip.originLat,
             "destLong":trip.destLong,
-            "destLat":trip.destLat
+            "destLat":trip.destLat,
+            "email":trip.email
                 ]){ err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -107,19 +112,21 @@ class FirebaseController: NSObject,DatabaseProtocol{
  
     func setUpListeners() {
         tripsRef = database.collection("Trips")
+        
         tripsRef?.addSnapshotListener { querySnapshot, error in
             guard (querySnapshot?.documents) != nil
                 else { print("Error fetching documents: \(error!)")
                     return
             }
             self.parseTripsSnapshot(snapshot: querySnapshot!) }
-        
+        if Auth.auth().currentUser != nil{
         viewRef = database.collection("Users").document((Auth.auth().currentUser?.email)!).collection("Trips")
+        
         viewRef?.addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("Error fetching trips: \(error!)")
                 return
             }
-            self.parseTeamSnapshot(snapshot: querySnapshot!) }
+            self.parseTeamSnapshot(snapshot: querySnapshot!) }}
 
 }
     func parseTripsSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
@@ -134,10 +141,11 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let originLat = change.document.data()["originLat"] as! Double
         let destLong = change.document.data()["destLong"] as! Double
         let destLat = change.document.data()["destLat"] as! Double
+        let email = change.document.data()["email"] as! String
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
-            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat)
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat,email:email)
 
             tripList.append(newTrip) }}
 
@@ -147,6 +155,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
                 listener.onTripListChange(change: .update, trips: tripList) }
         } }
     func parseTeamSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
+        if change.document.documentID != nil{
         let documentRef = change.document.documentID
         let title = change.document.data()["title"] as! String
         let origin = change.document.data()["origin"] as! String
@@ -158,12 +167,13 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let originLat = change.document.data()["originLat"] as! Double
         let destLong = change.document.data()["destLong"] as! Double
         let destLat = change.document.data()["destLat"] as! Double
+        let email = change.document.data()["email"] as! String
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
-            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat)
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat,email:email)
             
-            userList.append(newTrip) }}
+            userList.append(newTrip) }}}
         
         
         listeners.invoke { (listener) in

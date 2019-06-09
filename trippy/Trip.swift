@@ -19,7 +19,8 @@ class Trip: NSObject {
     var originLat:Double
     var destLong:Double
     var destLat: Double
-    init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String,originLong:Double,originLat:Double,destLong:Double,destLat:Double){
+    var email: String
+    init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String,originLong:Double,originLat:Double,destLong:Double,destLat:Double,email:String){
         self.title = title
         self.origin = origin
         self.destination = destination
@@ -30,5 +31,6 @@ class Trip: NSObject {
         self.originLong = originLong
         self.destLat = destLat
         self.destLong = destLong
+        self.email=email
     }
 }

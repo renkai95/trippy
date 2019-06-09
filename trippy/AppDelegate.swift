@@ -10,14 +10,17 @@ import UIKit
 import Firebase
 import GoogleMaps
 import GooglePlaces
+import FirebaseAuth
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     var databaseController: DatabaseProtocol?
-    
+    var db: Firestore?
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = false
         FirebaseApp.configure()
         //GIDSignIn.sharedInstance().clientID = "621271041924-nr7t5ljo4q8119vsnrbt6tlhtnujg7h9.apps.googleusercontent.com"
         //GIDSignIn.sharedInstance().delegate = self
@@ -27,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         databaseController = FirebaseController()
-        let db = Firestore.firestore()
+        //db = Firestore.firestore()
+        //db!.settings = settings
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -77,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
             Auth.auth().signIn(with: credential)
+  
         }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
