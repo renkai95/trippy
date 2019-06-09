@@ -25,6 +25,12 @@ class AddUserViewController: UIViewController {
     
 
     @IBAction func addUser(_ sender: Any) {
+        if userOutlet.text != "" {
+            let _ = databaseController!.addUser(email: userOutlet.text!, trip: passedValue)
+        }
+        else{
+            displayMessage(title: "Error", message: "Need user")
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -39,5 +45,12 @@ class AddUserViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func displayMessage(title: String, message: String) {
+        // Setup an alert to show user details about the Person
+        // UIAlertController manages an alert instance
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
 
 }
