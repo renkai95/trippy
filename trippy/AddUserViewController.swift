@@ -8,15 +8,28 @@
 
 import UIKit
 
+import Firebase
+import GoogleSignIn
+import GooglePlaces
 class AddUserViewController: UIViewController {
-
+    @IBOutlet weak var userOutlet: UITextField!
+    weak var databaseController:DatabaseProtocol?
+    var passedValue:Trip!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let appDelegate=UIApplication.shared.delegate as! AppDelegate
+        databaseController=appDelegate.databaseController
         // Do any additional setup after loading the view.
     }
     
 
+    @IBAction func addUser(_ sender: Any) {
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     /*
     // MARK: - Navigation
 

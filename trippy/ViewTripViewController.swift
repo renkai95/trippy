@@ -107,7 +107,19 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if (segue.identifier == "addUserSegue") {
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! AddUserViewController
+            // your new view controller should have property that will store passed value
+            
+            viewController.passedValue = passedValue
+        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+
     
    
     }

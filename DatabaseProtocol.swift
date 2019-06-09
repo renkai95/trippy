@@ -31,5 +31,6 @@ protocol DatabaseProtocol: AnyObject{
     func removeListener(listener:DatabaseListener)
 //    func editTask(task:Task)
     func addTrip(tripToAdd:Trip)
+    func addUser()
     
 }

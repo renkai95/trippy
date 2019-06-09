@@ -111,7 +111,7 @@
                     <navigationItem key="navigationItem" id="9le-PW-D9z">
                         <barButtonItem key="rightBarButtonItem" title="Add Viewer" id="dgK-yg-KwV">
                             <connections>
-                                <segue destination="UfJ-I1-Fvu" kind="show" id="V8g-pp-UQw"/>
+                                <segue destination="UfJ-I1-Fvu" kind="show" identifier="addUserSegue" id="V8g-pp-UQw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -128,22 +128,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-pj-ziY">
-                                <rect key="frame" x="20" y="227" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgm-Py-x2i">
-                                <rect key="frame" x="127" y="282" width="69" height="30"/>
-                                <state key="normal" title="Add User!"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vig-Zu-Lyc">
                                 <rect key="frame" x="20" y="181" width="72" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgm-Py-x2i">
+                                <rect key="frame" x="127" y="282" width="69" height="30"/>
+                                <state key="normal" title="Add User!"/>
+                                <connections>
+                                    <action selector="addUser:" destination="UfJ-I1-Fvu" eventType="touchUpInside" id="MMy-VA-4GS"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-pj-ziY">
+                                <rect key="frame" x="20" y="227" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -157,6 +160,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="amW-35-ito"/>
                     </view>
+                    <connections>
+                        <outlet property="userOutlet" destination="L2i-pj-ziY" id="ngb-K7-KOu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9j-gt-ohX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
