@@ -61,7 +61,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="F2R-QF-17O" kind="show" id="8bW-bN-dIO"/>
+                                    <segue destination="aDX-iv-vmV" kind="show" id="RZq-mv-vZp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -401,7 +401,7 @@
         <!--Shared Trips-->
         <scene sceneID="Ofp-ph-puZ">
             <objects>
-                <tableViewController id="aDX-iv-vmV" customClass="SharedTripListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="aDX-iv-vmV" customClass="SharedTableViewController" customModule="trippy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wp3-AK-U7w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,44 +412,45 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sharedTripCell" rowHeight="233" id="9RB-qV-Iks" customClass="SharedTableViewCell" customModule="trippy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="233"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9RB-qV-Iks" id="HUw-99-7Q3" customClass="SharedTableViewCell" customModule="trippy" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9RB-qV-Iks" id="HUw-99-7Q3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="232.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFe-Ql-t1P">
-                                            <rect key="frame" x="36" y="27" width="34" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFe-Ql-t1P">
+                                            <rect key="frame" x="16" y="16" width="33.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-v2-gWO">
-                                            <rect key="frame" x="36" y="64" width="46" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Origin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-v2-gWO">
+                                            <rect key="frame" x="16" y="53" width="46" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpo-gg-vyf">
-                                            <rect key="frame" x="36" y="101" width="87" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpo-gg-vyf">
+                                            <rect key="frame" x="16" y="90" width="87" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ph-0E-AIW">
-                                            <rect key="frame" x="36" y="138" width="37" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ph-0E-AIW">
+                                            <rect key="frame" x="16" y="127" width="36.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="3ph-0E-AIW" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leadingMargin" constant="16" id="7qD-Wh-T0K"/>
-                                        <constraint firstItem="wpo-gg-vyf" firstAttribute="top" secondItem="Kua-v2-gWO" secondAttribute="bottom" constant="16" id="B2K-Px-VOR"/>
-                                        <constraint firstItem="aFe-Ql-t1P" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leadingMargin" constant="16" id="Rk1-2K-rQi"/>
-                                        <constraint firstItem="Kua-v2-gWO" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leadingMargin" constant="16" id="YCb-io-j9z"/>
-                                        <constraint firstItem="Kua-v2-gWO" firstAttribute="top" secondItem="aFe-Ql-t1P" secondAttribute="bottom" constant="16" id="aFj-LY-E8h"/>
-                                        <constraint firstItem="3ph-0E-AIW" firstAttribute="top" secondItem="wpo-gg-vyf" secondAttribute="bottom" constant="16" id="euf-9b-LVh"/>
-                                        <constraint firstItem="wpo-gg-vyf" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leadingMargin" constant="16" id="hLC-V8-o78"/>
-                                        <constraint firstItem="aFe-Ql-t1P" firstAttribute="top" secondItem="HUw-99-7Q3" secondAttribute="topMargin" constant="16" id="jYO-eh-ojK"/>
+                                        <constraint firstItem="3ph-0E-AIW" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leading" constant="16" id="Jmx-QX-Wke"/>
+                                        <constraint firstItem="Kua-v2-gWO" firstAttribute="top" secondItem="aFe-Ql-t1P" secondAttribute="bottom" constant="16" id="LV7-lx-eJL"/>
+                                        <constraint firstItem="Kua-v2-gWO" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leading" constant="16" id="QdD-TJ-1NU"/>
+                                        <constraint firstItem="aFe-Ql-t1P" firstAttribute="top" secondItem="HUw-99-7Q3" secondAttribute="top" constant="16" id="Vbt-l5-L11"/>
+                                        <constraint firstItem="wpo-gg-vyf" firstAttribute="top" secondItem="Kua-v2-gWO" secondAttribute="bottom" constant="16" id="W5M-YT-AbL"/>
+                                        <constraint firstItem="aFe-Ql-t1P" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leading" constant="16" id="ZSu-hE-1kS"/>
+                                        <constraint firstItem="wpo-gg-vyf" firstAttribute="leading" secondItem="HUw-99-7Q3" secondAttribute="leading" constant="16" id="aL0-hF-MTC"/>
+                                        <constraint firstAttribute="bottom" secondItem="3ph-0E-AIW" secondAttribute="bottom" constant="16" id="ajp-Yh-LJm"/>
+                                        <constraint firstItem="3ph-0E-AIW" firstAttribute="top" secondItem="wpo-gg-vyf" secondAttribute="bottom" constant="16" id="seZ-BG-3Ko"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -474,9 +475,7 @@
                             <outlet property="delegate" destination="aDX-iv-vmV" id="u0f-T4-Qqh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Shared Trips" id="vW6-BZ-G8z">
-                        <barButtonItem key="rightBarButtonItem" title="Add Trip" id="ptt-4u-lo5"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Shared Trips" id="vW6-BZ-G8z"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ff-m2-teW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,9 +498,6 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aDX-iv-vmV" kind="relationship" relationship="rootViewController" id="qsg-Vy-Xb7"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9K-bc-3eJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

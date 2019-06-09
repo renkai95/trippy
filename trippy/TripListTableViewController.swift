@@ -9,6 +9,10 @@
 import UIKit
 import FirebaseAuth
 class TripListTableViewController: UITableViewController,UISearchResultsUpdating,DatabaseListener {
+    func onUserListChange(change: DatabaseChange, trips: [Trip]) {
+        let x = 1
+    }
+    
 
     var listenerType=ListenerType.trips
     var authController: Auth!

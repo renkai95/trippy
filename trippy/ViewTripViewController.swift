@@ -13,6 +13,10 @@ import Alamofire
 import SwiftyJSON
 import MessageKit
 class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate {
+    func onUserListChange(change: DatabaseChange, trips: [Trip]) {
+        var x = 3
+    }
+    
     func onTripListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
     }

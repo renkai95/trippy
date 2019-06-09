@@ -20,13 +20,16 @@ class FirebaseController: NSObject,DatabaseProtocol{
     var database: Firestore
     var tripsRef: CollectionReference?
     var tripRef: CollectionReference?
+    var viewRef:CollectionReference?
     var tripList: [Trip]
+    var userList: [Trip]
     override init() {
         // To use Firebase in our application we first must run the FirebaseApp configure method FirebaseApp.configure()
         // We call auth and firestore to get access to these frameworks
         authController = Auth.auth()
         database = Firestore.firestore()
          self.tripList = [Trip]()
+        self.userList=[Trip]()
         super.init()
         self.setUpListeners()
        
@@ -110,6 +113,13 @@ class FirebaseController: NSObject,DatabaseProtocol{
                     return
             }
             self.parseTripsSnapshot(snapshot: querySnapshot!) }
+        
+        viewRef = database.collection("Users").document((Auth.auth().currentUser?.email)!).collection("Trips")
+        viewRef?.addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else { print("Error fetching trips: \(error!)")
+                return
+            }
+            self.parseTeamSnapshot(snapshot: querySnapshot!) }
 
 }
     func parseTripsSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
@@ -136,10 +146,39 @@ class FirebaseController: NSObject,DatabaseProtocol{
             if listener.listenerType == ListenerType.trips || listener.listenerType == ListenerType.all {
                 listener.onTripListChange(change: .update, trips: tripList) }
         } }
+    func parseTeamSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
+        let documentRef = change.document.documentID
+        let title = change.document.data()["title"] as! String
+        let origin = change.document.data()["origin"] as! String
+        let destination = change.document.data()["destination"] as! String
+        let uid = change.document.data()["userid"] as! String
+        let originid = change.document.data()["originid"] as! String
+        let destid = change.document.data()["destid"] as! String
+        let originLong = change.document.data()["originLong"] as! Double
+        let originLat = change.document.data()["originLat"] as! Double
+        let destLong = change.document.data()["destLong"] as! Double
+        let destLat = change.document.data()["destLat"] as! Double
+        //let abilities = change.document.data()["abilities"] as! String print(documentRef)
+        if change.type == .added {
+            print("New Task: \(change.document.data())")
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat)
+            
+            userList.append(newTrip) }}
+        
+        
+        listeners.invoke { (listener) in
+            if listener.listenerType == ListenerType.users || listener.listenerType == ListenerType.all {
+                listener.onUserListChange(change: .update, trips: userList) }
+        } }
     func addListener(listener: DatabaseListener) {
         print(tripList)
         listeners.addDelegate(listener)
         listener.onTripListChange(change: .update, trips: tripList)
+        if listener.listenerType == ListenerType.trips || listener.listenerType == ListenerType.all { listener.onTripListChange(change: .update, trips: tripList)
+        }
+        if listener.listenerType == ListenerType.users || listener.listenerType == ListenerType.all { listener.onUserListChange(change:.update,trips:userList)
+        }
+    
     }
     func removeListener(listener: DatabaseListener) { listeners.removeDelegate(listener)
 }

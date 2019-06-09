@@ -9,14 +9,17 @@
 import UIKit
 import FirebaseAuth
 class SharedTableViewController: UITableViewController,UISearchResultsUpdating,DatabaseListener {
+
+
     
-    var listenerType=ListenerType.trips
+    
+    var listenerType=ListenerType.users
     var authController: Auth!
     var value:Trip!
     let SECTION_TRIP=0;
     let SECTION_COUNT=1;
-    let CELL_TRIP="tripCell"
-    let CELL_COUNT="tripCountCell"
+    let CELL_TRIP="sharedTripCell"
+    let CELL_COUNT="sharedTripCountCell"
     var allTrips: [Trip]=[]
     var filteredTrips: [Trip]=[]
     
@@ -63,7 +66,19 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
-    
+    func onUserListChange(change: DatabaseChange, trips: [Trip]) {
+        updateSearchResults(for: navigationItem.searchController!)
+        allTrips=trips
+        filteredTrips = allTrips
+        
+    }
+    func onTripListChange(change:DatabaseChange,trips:[Trip]){
+//        allTrips=trips.filter({(trip:Trip)->Bool in
+//            return (trip.uid==Auth.auth().currentUser!.uid)
+//        })
+//        updateSearchResults(for: navigationItem.searchController!)
+        var x = 3
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section==SECTION_TRIP{
             return filteredTrips.count
@@ -114,7 +129,7 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
         let trips=filteredTrips[indexPath.row]
         print(trips.title)
         value=trips
-        performSegue(withIdentifier: "tripMapSegue", sender: self)
+        performSegue(withIdentifier: "userMapSegue", sender: self)
         return
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -131,12 +146,7 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
         super.viewWillDisappear(animated)
         databaseController?.removeListener(listener: self)
     }
-    func onTripListChange(change:DatabaseChange,trips:[Trip]){
-        allTrips=trips.filter({(trip:Trip)->Bool in
-            return (trip.uid==Auth.auth().currentUser!.uid)
-        })
-        updateSearchResults(for: navigationItem.searchController!)
-    }
+
     /*
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -171,7 +181,7 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
-        if (segue.identifier == "tripMapSegue") {
+        if (segue.identifier == "userMapSegue") {
             // initialize new view controller and cast it as your view controller
             let viewController = segue.destination as! ViewTripViewController
             // your new view controller should have property that will store passed value

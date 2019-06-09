@@ -15,6 +15,7 @@ enum DatabaseChange{
     
 }
 enum ListenerType{
+    case users
     case messages
     case trips
     case all
@@ -22,6 +23,7 @@ enum ListenerType{
 protocol DatabaseListener:AnyObject{
     var listenerType:ListenerType{get set}
     func onTripListChange(change:DatabaseChange,trips:[Trip])
+    func onUserListChange(change:DatabaseChange,trips:[Trip])
 }
 protocol DatabaseProtocol: AnyObject{
 //    func addTask(title:String,desc:String,status:String,duedate:NSDate)-> Tasks
