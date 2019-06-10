@@ -12,7 +12,7 @@ import GooglePlaces
 import Alamofire
 import SwiftyJSON
 import MessageKit
-class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate {
+class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate,UITextViewDelegate {
     func onUserListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
     }
@@ -66,7 +66,9 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         textView.textAlignment = NSTextAlignment.justified
         textView.textColor = UIColor.blue
         textView.backgroundColor = UIColor.gray
+
         self.view.addSubview(textView)
+
         //setUpMap()
         //view=tempmapView
         location.delegate = self
@@ -74,6 +76,9 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         location.desiredAccuracy = kCLLocationAccuracyBest
         location.startUpdatingLocation()
         // Do any additional setup after loading the view.
+    }
+    func textViewDidChange(_ textView: UITextField) {
+        
     }
     
     func drawLine(){
