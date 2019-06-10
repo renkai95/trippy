@@ -476,32 +476,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shared Trips" id="vW6-BZ-G8z"/>
+                    <connections>
+                        <segue destination="4K0-J7-bs1" kind="show" identifier="viewTripSegue" id="nNG-P6-ylP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ff-m2-teW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1471.2" y="311.69415292353824"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zUc-10-Iym">
+        <!--View User Trip View Controller-->
+        <scene sceneID="Gyx-PT-TDh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F2R-QF-17O" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="sz5-T6-LVN">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N9K-bc-3eJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="4K0-J7-bs1" customClass="ViewUserTripViewController" customModule="trippy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qjs-hY-1eY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zCU-Lc-a6l"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvM-TA-BAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="311.69415292353824"/>
+            <point key="canvasLocation" x="680" y="265"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

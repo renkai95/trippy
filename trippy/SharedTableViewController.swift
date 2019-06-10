@@ -129,7 +129,7 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
         let trips=filteredTrips[indexPath.row]
         print(trips.title)
         value=trips
-        performSegue(withIdentifier: "userMapSegue", sender: self)
+        performSegue(withIdentifier: "viewTripSegue", sender: self)
         return
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -181,9 +181,9 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
-        if (segue.identifier == "userMapSegue") {
+        if (segue.identifier == "viewTripSegue") {
             // initialize new view controller and cast it as your view controller
-            let viewController = segue.destination as! ViewTripViewController
+            let viewController = segue.destination as! ViewUserTripViewController
             // your new view controller should have property that will store passed value
             print(value.title)
             viewController.passedValue = value
