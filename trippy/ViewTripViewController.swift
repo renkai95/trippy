@@ -61,14 +61,18 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         mapView.moveCamera(cameraUpdate)
         
         drawLine()
-//        db.collection("cities").document("SF")
+//        db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
 //            .addSnapshotListener { documentSnapshot, error in
 //                guard let document = documentSnapshot else {
 //                    print("Error fetching document: \(error!)")
 //                    return
 //                }
-//                let source = document.metadata.hasPendingWrites ? "Local" : "Server"
-//                print("\(source) data: \(document.data() ?? [:])")
+//                guard let data = document.data() else {
+//                    print("Document data was empty.")
+//                    return
+//                }
+//                print("Current data: \(data)")
+//                textView.text = data["Message"] as! String
 //        }
         let textView = UITextView(frame: CGRect(x: 0, y: 600, width: 430, height: 500.0))
         self.automaticallyAdjustsScrollViewInsets = false
@@ -87,12 +91,25 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
                 print("Document does not exist")
             }
         }
+        
         //textView.text = db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
 
         textView.delegate=self
         
         self.view.addSubview(textView)
-
+        db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                print("Current data: \(data)")
+                textView.text = data["Message"] as! String
+        }
         //setUpMap()
         //view=tempmapView
         location.delegate = self
