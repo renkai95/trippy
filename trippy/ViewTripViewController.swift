@@ -120,6 +120,16 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
     }
     func textViewDidChange(_ textView: UITextView) {
         //print(textView.text)
+        let docRef = db.collection("MessageRoom").document(passedValue.docid!+passedValue.email).setData([
+            "Message": textView.text,
+
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
         
     }
     
