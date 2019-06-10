@@ -25,6 +25,10 @@ protocol DatabaseListener:AnyObject{
     func onTripListChange(change:DatabaseChange,trips:[Trip])
     func onUserListChange(change:DatabaseChange,trips:[Trip])
 }
+extension DatabaseListener{
+    //func onMessageChange(change:DatabaseChange,trips:[Trip])
+    //func onMessagecontent
+}
 protocol DatabaseProtocol: AnyObject{
 //    func addTask(title:String,desc:String,status:String,duedate:NSDate)-> Tasks
 //    func changeStatus(task:Tasks)

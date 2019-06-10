@@ -86,6 +86,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
 //                }}
 //
         database.collection("Users").document((Auth.auth().currentUser?.email)!).setData(["userid":trip.uid])
+        database.collection("MessageRoom").document((datecode+trip.email)).setData(["Message":""])
         docRef = database.collection("Trips").addDocument(data:[
             "userid":trip.uid,
             "docid":datecode,
@@ -142,10 +143,11 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let destLong = change.document.data()["destLong"] as! Double
         let destLat = change.document.data()["destLat"] as! Double
         let email = change.document.data()["email"] as! String
+        let docid = change.document.data()["docid"] as! String
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
-            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat,email:email)
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat,email:email,docid : docid)
 
             tripList.append(newTrip) }}
 
@@ -168,10 +170,11 @@ class FirebaseController: NSObject,DatabaseProtocol{
         let destLong = change.document.data()["destLong"] as! Double
         let destLat = change.document.data()["destLat"] as! Double
         let email = change.document.data()["email"] as! String
+        let docid = change.document.data()["docid"] as! String
         //let abilities = change.document.data()["abilities"] as! String print(documentRef)
         if change.type == .added {
             print("New Task: \(change.document.data())")
-            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat,email:email)
+            let newTrip = Trip(uid:uid,title:title,origin:origin,destination:destination, originid: originid, destid: destid, originLong: originLong, originLat:  originLat,destLong:destLong,destLat:destLat,email:email,docid:docid)
             
             userList.append(newTrip) }}}
         

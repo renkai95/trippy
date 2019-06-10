@@ -12,6 +12,7 @@ import GooglePlaces
 import Alamofire
 import SwiftyJSON
 import MessageKit
+import FirebaseFirestore
 class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate,UITextViewDelegate {
     func onUserListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
@@ -30,7 +31,8 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
     var location = CLLocationManager()
     var listenerType=ListenerType.messages
     weak var databaseController: DatabaseProtocol?
-    
+    var db = Firestore.firestore()
+
     var passedValue:Trip!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +61,15 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         mapView.moveCamera(cameraUpdate)
         
         drawLine()
+//        db.collection("cities").document("SF")
+//            .addSnapshotListener { documentSnapshot, error in
+//                guard let document = documentSnapshot else {
+//                    print("Error fetching document: \(error!)")
+//                    return
+//                }
+//                let source = document.metadata.hasPendingWrites ? "Local" : "Server"
+//                print("\(source) data: \(document.data() ?? [:])")
+//        }
         let textView = UITextView(frame: CGRect(x: 0, y: 600, width: 430, height: 500.0))
         self.automaticallyAdjustsScrollViewInsets = false
         
@@ -66,8 +77,20 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         textView.textAlignment = NSTextAlignment.justified
         textView.textColor = UIColor.blue
         textView.backgroundColor = UIColor.gray
-        textView.delegate=self
+        let docRef = db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                //var x = document.data()
+                textView.text = document.data()?["Message"]  as! String
+                print("Document data: \(textView.text)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        //textView.text = db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
 
+        textView.delegate=self
+        
         self.view.addSubview(textView)
 
         //setUpMap()
@@ -80,6 +103,7 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
     }
     func textViewDidChange(_ textView: UITextView) {
         //print(textView.text)
+        
     }
     
     func drawLine(){

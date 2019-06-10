@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import GooglePlaces
+import FirebaseFirestore
 
 class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationManagerDelegate{
     weak var databaseController:DatabaseProtocol?
@@ -26,7 +27,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
     var resultView: UITextView?
     var originPlaceLong : Double?
     var originPlaceLat : Double?
-    
+    //var db = Firestore.firestore()
     var destinationPlaceLong : Double?
     var destinationPlaceLat : Double?
     override func viewDidLoad() {

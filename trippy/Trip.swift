@@ -20,6 +20,7 @@ class Trip: NSObject {
     var destLong:Double
     var destLat: Double
     var email: String
+    var docid: String?
     init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String,originLong:Double,originLat:Double,destLong:Double,destLat:Double,email:String){
         self.title = title
         self.origin = origin
@@ -32,5 +33,19 @@ class Trip: NSObject {
         self.destLat = destLat
         self.destLong = destLong
         self.email=email
+    }
+    init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String,originLong:Double,originLat:Double,destLong:Double,destLat:Double,email:String,docid:String){
+        self.title = title
+        self.origin = origin
+        self.destination = destination
+        self.uid=uid
+        self.originid = originid
+        self.destid = destid
+        self.originLat = originLat
+        self.originLong = originLong
+        self.destLat = destLat
+        self.destLong = destLong
+        self.email=email
+        self.docid = docid
     }
 }
