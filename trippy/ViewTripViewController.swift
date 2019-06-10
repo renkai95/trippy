@@ -66,6 +66,7 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         textView.textAlignment = NSTextAlignment.justified
         textView.textColor = UIColor.blue
         textView.backgroundColor = UIColor.gray
+        textView.delegate=self
 
         self.view.addSubview(textView)
 
@@ -77,8 +78,8 @@ class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDeleg
         location.startUpdatingLocation()
         // Do any additional setup after loading the view.
     }
-    func textViewDidChange(_ textView: UITextField) {
-        
+    func textViewDidChange(_ textView: UITextView) {
+        //print(textView.text)
     }
     
     func drawLine(){
