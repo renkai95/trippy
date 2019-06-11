@@ -45,13 +45,13 @@ class FirebaseController: NSObject,DatabaseProtocol{
     }
     func addUser(email: String, trip: Trip) {
         var docRef: DocumentReference? = nil
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "ddMMyyyyHHmmss"
-        let datecode = formatter.string(from: date)
+//        let date = Date()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "ddMMyyyyHHmmss"
+//        let datecode = formatter.string(from: date)
         docRef=database.collection("Users").document(email).collection("Trips").addDocument(data:[
             "userid":trip.uid,
-            "docid":datecode,
+            "docid":trip.docid,
             "title":trip.title,
             "origin":trip.origin,
             "destination":trip.destination,

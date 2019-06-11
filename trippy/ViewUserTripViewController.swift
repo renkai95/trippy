@@ -12,8 +12,9 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
+import FirebaseFirestore
 import MessageKit
-class ViewUserTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate {
+class ViewUserTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate,UITextViewDelegate {
     func onUserListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
     }
@@ -21,6 +22,7 @@ class ViewUserTripViewController: UIViewController,DatabaseListener, GMSMapViewD
     func onTripListChange(change: DatabaseChange, trips: [Trip]) {
         var x = 3
     }
+    var db = Firestore.firestore()
     weak var originPlace : GMSPlace?
     weak var destinationPlace: GMSPlace?
     //weak var camera : GMSCameraPosition?
@@ -67,16 +69,55 @@ class ViewUserTripViewController: UIViewController,DatabaseListener, GMSMapViewD
         textView.textAlignment = NSTextAlignment.justified
         textView.textColor = UIColor.blue
         textView.backgroundColor = UIColor.gray
+        let docRef = db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
+        
+        print(passedValue.docid!+passedValue.email)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                //var x = document.data()
+                textView.text = document.data()?["Message"]  as! String
+                print("Document data: \(textView.text)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        textView.delegate=self
         self.view.addSubview(textView)
         //setUpMap()
         //view=tempmapView
+        db.collection("MessageRoom").document(passedValue.docid!+passedValue.email)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                print("Current data: \(data)")
+                textView.text = data["Message"] as! String
+        }
         location.delegate = self
         location.requestWhenInUseAuthorization()
         location.desiredAccuracy = kCLLocationAccuracyBest
         location.startUpdatingLocation()
         // Do any additional setup after loading the view.
     }
-    
+    func textViewDidChange(_ textView: UITextView) {
+        //print(textView.text)
+        let docRef = db.collection("MessageRoom").document(passedValue.docid!+passedValue.email).setData([
+            "Message": textView.text,
+            
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+        }
+        
+    }
     func drawLine(){
         // function adapted from  Agus Cahyono https://github.com/balitax/Google-Maps-Direction/blob/master/Maps%20Direction/ViewController.swift
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(passedValue.originLat),\(passedValue.originLong)&destination=\(passedValue.destLat),\(passedValue.destLong)&mode=driving&key=AIzaSyDsGHdQSobzHdI1o7JaVkkjdf2c-wnFL18"
