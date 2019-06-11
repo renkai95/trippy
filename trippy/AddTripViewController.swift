@@ -130,6 +130,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
             
           
             let _ = databaseController!.addTrip(tripToAdd:newTrip)
+            displayMessage(title: "Trip Added!", message: "You can return or add another trip")
         }
     }
     /*
