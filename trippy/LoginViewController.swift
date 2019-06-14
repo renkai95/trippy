@@ -14,22 +14,41 @@ import FirebaseAuth
 class LoginViewController: UIViewController,GIDSignInUIDelegate {
     var handle: AuthStateDidChangeListenerHandle?
     @IBOutlet weak var signOut: UIButton!
-    
+    @IBOutlet weak var loginState: UILabel!
+    var login:Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
-        
+        handle = Auth.auth().addStateDidChangeListener({(auth,user) in
+            if user != nil{
+                self.loginState.text = "Logged in!"
+            }
+            else{
+                self.loginState.text = "Please log in"
+            }
+        })
         // Do any additional setup after loading the view.
     }
+    @IBAction func sharedTrips(_ sender: Any) {
+        if (Auth.auth().currentUser?.uid != nil)  {
+            self.performSegue(withIdentifier: "sharedTripSegue", sender: nil)
+            
+        }
+            
+        else{
+            self.displayMessage(title: "ERROR", message: "Please Google Sign in first!")
+        }
+    }
+    
     @IBAction func loginPrepare(_ sender: UIButton) {
         print("ohno")
         //print(Auth.auth().currentUser?.uid)
         
-        handle = Auth.auth().addStateDidChangeListener( { (auth, user) in
-        
-        if user != nil {
+
+        if (Auth.auth().currentUser?.uid != nil)  {
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
             
         }
@@ -37,8 +56,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         else{
             self.displayMessage(title: "ERROR", message: "Please Google Sign in first!")
             }
-        
-    })
+
     }
     
     /*
@@ -53,6 +71,14 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
     @IBAction func didTapSignOut(_ sender: AnyObject) {
         print("signedout")
         GIDSignIn.sharedInstance().signOut()
+        do{
+            try Auth.auth().signOut()
+
+        }
+        catch{
+            print("cannot log out")
+        }
+        login = false
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //
 //        let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginNav")
@@ -66,6 +92,6 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //Auth.auth().removeStateDidChangeListener(handle!)
+        Auth.auth().removeStateDidChangeListener(handle!)
     }
 }

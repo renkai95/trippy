@@ -99,7 +99,7 @@ class SharedTableViewController: UITableViewController,UISearchResultsUpdating,D
             tripCell.sharedTitleOutlet.text=trip.title
             tripCell.sharedOriginOutlet.text=trip.origin
             tripCell.sharedDestinationOutlet.text = trip.destination
-            tripCell.sharedUserOutlet.text = trip.destination
+            tripCell.sharedUserOutlet.text = trip.email
             
             //titleCell.dueOutlet.text=date2String(task.duedate!)
             

@@ -4,17 +4,17 @@
 //
 //  Created by rk on 5/5/19.
 //  Copyright © 2019 Monash University. All rights reserved.
-//
+// This class contains the attributes that constitues a "Trip" it requires google places 
 
 import UIKit
 import GooglePlaces
 class Trip: NSObject {
-    var title: String
-    var origin: String
-    var destination: String
-    var uid: String
-    var originid: String
-    var destid: String
+    var title: String //name of trip
+    var origin: String // origin address
+    var destination: String //destination address
+    var uid: String  // userid of creator
+    var originid: String  //origin placeid
+    var destid: String  // destination placeid
     var originLong: Double
     var originLat:Double
     var destLong:Double

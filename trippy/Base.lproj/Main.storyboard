@@ -37,7 +37,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dkW-Jz-9Ns" kind="show" identifier="loginSegue" id="lzQ-kt-HJ5"/>
+                                    <action selector="loginPrepare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZLW-xk-wKB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-US-eOV" customClass="GIDSignInButton">
@@ -61,7 +61,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aDX-iv-vmV" kind="show" id="RZq-mv-vZp"/>
+                                    <action selector="sharedTrips:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RT5-0p-5Mm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLm-aO-XLD">
@@ -104,7 +104,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="RJe-EM-dXT"/>
                     <connections>
+                        <outlet property="loginState" destination="ryp-ov-jQx" id="A6S-R6-kbp"/>
                         <outlet property="signOut" destination="cNc-Ic-hEH" id="ioq-RS-ck9"/>
+                        <segue destination="dkW-Jz-9Ns" kind="show" identifier="loginSegue" id="LBG-22-xD7"/>
+                        <segue destination="aDX-iv-vmV" kind="show" identifier="sharedTripSegue" id="H9L-8o-7qv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -497,31 +500,40 @@
             </objects>
             <point key="canvasLocation" x="1471.2" y="311.69415292353824"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="4MM-OA-W95">
             <objects>
-                <viewController id="eOq-3c-mb9" sceneMemberID="viewController">
+                <viewController id="eOq-3c-mb9" customClass="AboutViewController" customModule="trippy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3xP-FP-Qkt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H9I-Um-M6I">
-                                <rect key="frame" x="20" y="159" width="374" height="192"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9I-Um-M6I">
+                                <rect key="frame" x="54" y="220" width="312" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Portions of this app are modifications based on work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Google \n Portions of this app are modifications based on work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.</string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="10" name=".AppleSystemUIFont"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="H9I-Um-M6I" firstAttribute="leading" secondItem="3xP-FP-Qkt" secondAttribute="leadingMargin" id="5hH-Mh-yNx"/>
-                            <constraint firstItem="rq7-3x-IJp" firstAttribute="bottom" secondItem="H9I-Um-M6I" secondAttribute="bottom" constant="511" id="ceY-9P-xO4"/>
-                            <constraint firstItem="H9I-Um-M6I" firstAttribute="top" secondItem="rq7-3x-IJp" secondAttribute="top" constant="19" id="daW-A2-TsJ"/>
-                            <constraint firstItem="H9I-Um-M6I" firstAttribute="trailing" secondItem="3xP-FP-Qkt" secondAttribute="trailingMargin" id="r9w-Zw-s6W"/>
+                            <constraint firstItem="rq7-3x-IJp" firstAttribute="trailing" secondItem="H9I-Um-M6I" secondAttribute="trailing" constant="48" id="AIT-ZK-jPn"/>
+                            <constraint firstItem="H9I-Um-M6I" firstAttribute="top" secondItem="rq7-3x-IJp" secondAttribute="top" constant="80" id="COi-P5-LhL"/>
+                            <constraint firstItem="H9I-Um-M6I" firstAttribute="leading" secondItem="rq7-3x-IJp" secondAttribute="leading" constant="54" id="V3e-GF-CmV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rq7-3x-IJp"/>
                     </view>
+                    <connections>
+                        <outlet property="textDoc" destination="H9I-Um-M6I" id="yJe-qi-DvN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XS3-dw-OyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -544,6 +556,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lzQ-kt-HJ5"/>
+        <segue reference="LBG-22-xD7"/>
     </inferredMetricsTieBreakers>
 </document>

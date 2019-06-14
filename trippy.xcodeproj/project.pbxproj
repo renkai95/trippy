@@ -26,6 +26,7 @@
 		50EF7D68227EA0B5008CCECC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF7D67227EA0B5008CCECC /* Trip.swift */; };
 		50EF7D6A227EB032008CCECC /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF7D69227EB032008CCECC /* TripTableViewCell.swift */; };
 		50F1F66B227FCA9600F8B2FA /* ViewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1F66A227FCA9500F8B2FA /* ViewTripViewController.swift */; };
+		50F4A86922B3BB2A0011EDC2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F4A86822B3BB2A0011EDC2 /* AboutViewController.swift */; };
 		50F6CA0322ADEC9E00987A1C /* ViewUserTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6CA0222ADEC9E00987A1C /* ViewUserTripViewController.swift */; };
 		B0B13D402C2C11C8BD13563B /* Pods_trippy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		50EF7D67227EA0B5008CCECC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		50EF7D69227EB032008CCECC /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		50F1F66A227FCA9500F8B2FA /* ViewTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTripViewController.swift; sourceTree = "<group>"; };
+		50F4A86822B3BB2A0011EDC2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		50F6CA0222ADEC9E00987A1C /* ViewUserTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserTripViewController.swift; sourceTree = "<group>"; };
 		5870E17922DA27188C7C1AF6 /* Pods-trippy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trippy.release.xcconfig"; path = "Target Support Files/Pods-trippy/Pods-trippy.release.xcconfig"; sourceTree = "<group>"; };
 		A8E50C6FC73A6D6BA1BBF74B /* Pods_trippy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trippy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				503F2FE0227ADE150007BA23 /* LoginViewController.swift */,
 				50EF7D69227EB032008CCECC /* TripTableViewCell.swift */,
 				50E5220F22AC3D580073A5B4 /* SharedTableViewCell.swift */,
+				50F4A86822B3BB2A0011EDC2 /* AboutViewController.swift */,
 				50EB43B522ACE2520092C40E /* AddUserViewController.swift */,
 				50919752227CBD1500E34817 /* AddTripViewController.swift */,
 				503F2FE2227ADE2A0007BA23 /* TripListTableViewController.swift */,
@@ -337,6 +340,7 @@
 				508828B9227AC0B5000AA7CB /* AppDelegate.swift in Sources */,
 				50EB43B622ACE2520092C40E /* AddUserViewController.swift in Sources */,
 				50919753227CBD1500E34817 /* AddTripViewController.swift in Sources */,
+				50F4A86922B3BB2A0011EDC2 /* AboutViewController.swift in Sources */,
 				50D8F02E227D675F0085133F /* MulticastDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

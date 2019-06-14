@@ -5,6 +5,8 @@
 //  Created by rk on 2/5/19.
 //  Copyright © 2019 Monash University. All rights reserved.
 //AIzaSyDn6wF6a9esTa4iscz7eAq4QlP5uFNva48
+// This app appdelegate contains a modification of
+//https://developers.google.com/identity/sign-in/ios/
 import GoogleSignIn
 import UIKit
 import Firebase
@@ -35,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        //https://developers.google.com/identity/sign-in/ios/
         let googleAuthentication = GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
         
         
