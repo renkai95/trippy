@@ -13,6 +13,7 @@ import Firebase
 import GoogleMaps
 import GooglePlaces
 import FirebaseAuth
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     var databaseController: DatabaseProtocol?
@@ -78,12 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             let familyName = user.profile.familyName
             let email = user.profile.email
             // ...
-            print(fullName)
+            //print(fullName)
             guard let authentication = user.authentication else { return }
             
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
             Auth.auth().signIn(with: credential)
+            //FirebaseController.setUpListeners()
+            
   
         }
     }

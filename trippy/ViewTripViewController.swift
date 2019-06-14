@@ -11,14 +11,16 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
-import MessageKit
+
 import FirebaseFirestore
 class ViewTripViewController: UIViewController,DatabaseListener, GMSMapViewDelegate ,  CLLocationManagerDelegate,UITextViewDelegate {
     func onUserListChange(change: DatabaseChange, trips: [Trip]) {
+        //stub
         var x = 3
     }
     
     func onTripListChange(change: DatabaseChange, trips: [Trip]) {
+        //stub
         var x = 3
     }
     weak var originPlace : GMSPlace?

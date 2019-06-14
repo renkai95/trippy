@@ -22,6 +22,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
+        //check if logged in
         handle = Auth.auth().addStateDidChangeListener({(auth,user) in
             if user != nil{
                 self.loginState.text = "Logged in!"
@@ -32,6 +33,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         })
         // Do any additional setup after loading the view.
     }
+    //shared Trips
     @IBAction func sharedTrips(_ sender: Any) {
         if (Auth.auth().currentUser?.uid != nil)  {
             self.performSegue(withIdentifier: "sharedTripSegue", sender: nil)
@@ -42,7 +44,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
             self.displayMessage(title: "ERROR", message: "Please Google Sign in first!")
         }
     }
-    
+    //login to view your own trips
     @IBAction func loginPrepare(_ sender: UIButton) {
         print("ohno")
         //print(Auth.auth().currentUser?.uid)
@@ -68,6 +70,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    //signout
     @IBAction func didTapSignOut(_ sender: AnyObject) {
         print("signedout")
         GIDSignIn.sharedInstance().signOut()

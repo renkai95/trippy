@@ -18,6 +18,7 @@ class AddUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //load database listener
         let appDelegate=UIApplication.shared.delegate as! AppDelegate
         databaseController=appDelegate.databaseController
         // Do any additional setup after loading the view.

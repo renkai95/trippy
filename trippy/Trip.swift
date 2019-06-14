@@ -15,12 +15,12 @@ class Trip: NSObject {
     var uid: String  // userid of creator
     var originid: String  //origin placeid
     var destid: String  // destination placeid
-    var originLong: Double
-    var originLat:Double
-    var destLong:Double
-    var destLat: Double
-    var email: String
-    var docid: String?
+    var originLong: Double //origin longitude
+    var originLat:Double  //origin latitude
+    var destLong:Double  //destination longitude
+    var destLat: Double  //destination latitude
+    var email: String  //email of user
+    var docid: String?  // document id ,optional
     init (uid: String,title:String,origin:String,destination:String,originid:String,destid:String,originLong:Double,originLat:Double,destLong:Double,destLat:Double,email:String){
         self.title = title
         self.origin = origin

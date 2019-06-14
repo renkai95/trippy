@@ -44,6 +44,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
         
     }
     func addUser(email: String, trip: Trip) {
+        //add user into db
         var docRef: DocumentReference? = nil
 //        let date = Date()
 //        let formatter = DateFormatter()
@@ -71,6 +72,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
         }
     }
     func addTrip(tripToAdd:Trip){
+        //add trip into db
         let trip = tripToAdd
         var docRef: DocumentReference? = nil
         let date = Date()
@@ -112,6 +114,7 @@ class FirebaseController: NSObject,DatabaseProtocol{
            
  
     func setUpListeners() {
+        //set up database listeners
         tripsRef = database.collection("Trips")
         
         tripsRef?.addSnapshotListener { querySnapshot, error in
@@ -130,7 +133,9 @@ class FirebaseController: NSObject,DatabaseProtocol{
             self.parseTeamSnapshot(snapshot: querySnapshot!) }}
 
 }
-    func parseTripsSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
+    func parseTripsSnapshot(snapshot: QuerySnapshot)
+        //parse current instant of document
+    { snapshot.documentChanges.forEach { change in
         let documentRef = change.document.documentID
         let title = change.document.data()["title"] as! String
         let origin = change.document.data()["origin"] as! String
@@ -156,7 +161,9 @@ class FirebaseController: NSObject,DatabaseProtocol{
             if listener.listenerType == ListenerType.trips || listener.listenerType == ListenerType.all {
                 listener.onTripListChange(change: .update, trips: tripList) }
         } }
-    func parseTeamSnapshot(snapshot: QuerySnapshot) { snapshot.documentChanges.forEach { change in
+    func parseTeamSnapshot(snapshot: QuerySnapshot)
+    //parse current iteration of document
+    { snapshot.documentChanges.forEach { change in
         if change.document.documentID != nil{
         let documentRef = change.document.documentID
         let title = change.document.data()["title"] as! String
@@ -184,7 +191,8 @@ class FirebaseController: NSObject,DatabaseProtocol{
                 listener.onUserListChange(change: .update, trips: userList) }
         } }
     func addListener(listener: DatabaseListener) {
-        print(tripList)
+        //add any listner
+        //print(tripList)
         listeners.addDelegate(listener)
         listener.onTripListChange(change: .update, trips: tripList)
         if listener.listenerType == ListenerType.trips || listener.listenerType == ListenerType.all { listener.onTripListChange(change: .update, trips: tripList)

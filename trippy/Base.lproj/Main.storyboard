@@ -287,13 +287,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UgI-v4-phN">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UgI-v4-phN">
                                 <rect key="frame" x="16" y="276" width="382" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKW-4r-7so">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKW-4r-7so">
                                 <rect key="frame" x="16" y="322" width="382" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -305,13 +305,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgd-zn-RCs">
-                                <rect key="frame" x="289" y="368" width="109" height="30"/>
-                                <state key="normal" title="Add Destination"/>
-                                <connections>
-                                    <action selector="addDestination:" destination="ihn-9P-xfE" eventType="touchUpInside" id="xIf-EL-qQd"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-XP-y3m">
                                 <rect key="frame" x="16" y="770" width="382" height="30"/>
                                 <state key="normal" title="Save Trip"/>
@@ -328,7 +321,6 @@
                         <constraints>
                             <constraint firstItem="IKW-4r-7so" firstAttribute="leading" secondItem="T0f-wS-SqX" secondAttribute="leading" constant="16" id="02M-1F-MpW"/>
                             <constraint firstItem="pCU-Kj-5H3" firstAttribute="leading" secondItem="T0f-wS-SqX" secondAttribute="leading" constant="16" id="15a-5Q-9jr"/>
-                            <constraint firstAttribute="trailing" secondItem="Mgd-zn-RCs" secondAttribute="trailing" constant="16" id="5At-Em-znC"/>
                             <constraint firstItem="T0f-wS-SqX" firstAttribute="trailing" secondItem="IKW-4r-7so" secondAttribute="trailing" constant="16" id="5Dk-8t-BqM"/>
                             <constraint firstItem="T0f-wS-SqX" firstAttribute="trailing" secondItem="UgI-v4-phN" secondAttribute="trailing" constant="16" id="5sf-8O-c8z"/>
                             <constraint firstItem="pCU-Kj-5H3" firstAttribute="top" secondItem="T0f-wS-SqX" secondAttribute="top" constant="16" id="CWn-7M-Z4h"/>
@@ -344,7 +336,6 @@
                             <constraint firstItem="HPb-Cq-Hxv" firstAttribute="leading" secondItem="T0f-wS-SqX" secondAttribute="leading" constant="16" id="oaf-j3-fZg"/>
                             <constraint firstItem="UgI-v4-phN" firstAttribute="leading" secondItem="T0f-wS-SqX" secondAttribute="leading" constant="16" id="vlU-Cm-MmK"/>
                             <constraint firstItem="T0f-wS-SqX" firstAttribute="trailing" secondItem="nSq-S0-gCb" secondAttribute="trailing" constant="16" id="wLT-nC-lhW"/>
-                            <constraint firstItem="Mgd-zn-RCs" firstAttribute="top" secondItem="IKW-4r-7so" secondAttribute="bottom" constant="16" id="xjI-Gc-t9P"/>
                             <constraint firstItem="T0f-wS-SqX" firstAttribute="trailing" secondItem="IVz-XP-y3m" secondAttribute="trailing" constant="16" id="yWa-rM-VHK"/>
                             <constraint firstItem="T0f-wS-SqX" firstAttribute="trailing" secondItem="HPb-Cq-Hxv" secondAttribute="trailing" constant="16" id="yfq-vg-3l1"/>
                         </constraints>

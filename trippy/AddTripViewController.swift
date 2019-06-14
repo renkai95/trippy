@@ -94,7 +94,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
     }
     
     func addToPopover(){
-        
+        //https://developers.google.com/places/ios-sdk/autocomplete adapted from
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self as! GMSAutocompleteResultsViewControllerDelegate
         
@@ -163,6 +163,7 @@ class AddTripViewController: UIViewController ,GIDSignInUIDelegate,CLLocationMan
 
 }
 extension AddTripViewController: GMSAutocompleteResultsViewControllerDelegate {
+    //adapted from https://developers.google.com/places/ios-sdk/autocomplete
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
