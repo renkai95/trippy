@@ -12,7 +12,7 @@ import FirebaseAuth
 //import Firebase
 
 class LoginViewController: UIViewController,GIDSignInUIDelegate {
-
+    var handle: AuthStateDidChangeListenerHandle?
     @IBOutlet weak var signOut: UIButton!
     
     override func viewDidLoad() {
@@ -27,15 +27,19 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         print("ohno")
         //print(Auth.auth().currentUser?.uid)
         
-        if  Auth.auth().currentUser != nil {
+        handle = Auth.auth().addStateDidChangeListener( { (auth, user) in
+        
+        if user != nil {
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            
         }
+        
         else{
             self.displayMessage(title: "ERROR", message: "Please Google Sign in first!")
             }
         
+    })
     }
-
     
     /*
     // MARK: - Navigation
@@ -59,5 +63,9 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
         let alertController=UIAlertController(title:title,message:message,preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title:"Dismiss",style:UIAlertAction.Style.default,handler:nil))
         self.present(alertController,animated:true,completion: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //Auth.auth().removeStateDidChangeListener(handle!)
     }
 }
