@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         let settings = FirestoreSettings()
         settings.isPersistenceEnabled = false
         FirebaseApp.configure()
-        //GIDSignIn.sharedInstance().clientID = "621271041924-nr7t5ljo4q8119vsnrbt6tlhtnujg7h9.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance().clientID = ""
         //GIDSignIn.sharedInstance().delegate = self
         // Override point for customization after application launch.
-        GMSServices.provideAPIKey("AIzaSyDsGHdQSobzHdI1o7JaVkkjdf2c-wnFL18")
-    GMSPlacesClient.provideAPIKey("AIzaSyBFFVfPQeBaQ-bdjvEl85RxBWDT5f6WA2M")
+        GMSServices.provideAPIKey("-")
+    GMSPlacesClient.provideAPIKey("-")
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         databaseController = FirebaseController()
